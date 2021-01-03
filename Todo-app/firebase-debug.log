@@ -1,0 +1,24 @@
+[debug] [2021-01-03T20:35:22.733Z] ----------------------------------------------------------------------
+[debug] [2021-01-03T20:35:22.735Z] Command:       D:\NodeJs\node.exe C:\Users\Windows 10\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-01-03T20:35:22.736Z] CLI Version:   9.1.0
+[debug] [2021-01-03T20:35:22.736Z] Platform:      win32
+[debug] [2021-01-03T20:35:22.736Z] Node Version:  v14.5.0
+[debug] [2021-01-03T20:35:22.978Z] Time:          Mon Jan 04 2021 02:05:22 GMT+0530 (India Standard Time)
+[debug] [2021-01-03T20:35:22.978Z] ----------------------------------------------------------------------
+[debug] [2021-01-03T20:35:22.978Z] 
+[debug] [2021-01-03T20:35:23.082Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-01-03T20:35:23.162Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-03T20:35:23.163Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Git Projects\React-Projects\Todo-app
+
+[debug] [2021-01-03T20:35:24.280Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-01-03T20:35:24.280Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
