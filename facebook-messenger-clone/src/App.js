@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
 import Message from './Message';
-import db from './firebase';
-import firebase from 'firebase';
 import './App.css';
 
 function App() {
@@ -13,15 +11,6 @@ function App() {
   // console.log(input);
   // console.log(messages);
 
-  // listener within a listener
-  // useEffect runs when page loads, onSnapshot runs every time db changes
-  useEffect(() => {
-    db.collection('messages').orderBy('timestamp', 'asc')
-    .onSnapshot(snapshot => {
-      setMessages(snapshot.docs.map(doc => doc.data()))
-    });
-  }, [] )
-
   useEffect(() => {
     setUsername(prompt('Please enter your name'));
   }, [])
@@ -29,13 +18,7 @@ function App() {
 
   const sendMessage = (event) => {
     event.preventDefault();
-
-    db.collection('messages').add({
-      message: input,
-      username: username,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    })
-
+    setMessages([...messages, {username: username, text: input}])
     setInput('');
   }
 
