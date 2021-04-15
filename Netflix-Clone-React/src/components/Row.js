@@ -38,17 +38,13 @@ class Row extends Component {
                     <h2>{this.props.title}</h2>
 
                     {/* container -> posters */}
-                    {/* {this.state.movies.length > 0 && <p>{this.state.movies[0].title}</p>} */}
-
                     <div className="row_posters">
                         {this.state.movies.map(movie => {
-                            return <p>{movie.title}</p>
+                            return <p>{movie.name}</p>
                         })}
                     </div>
                 </div>
                 }
-                
-
             </div>
         );
     }
