@@ -28,7 +28,7 @@ class Row extends Component {
       });
   }
   componentDidUpdate() {
-    console.log(this.state.movies);
+    // console.log(this.state.movies);
     if (this.state.fetchUrl !== this.props.fetchUrl) {
       this.setState({ fetchUrl: this.props.fetchUrl });
     }
