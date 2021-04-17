@@ -30,6 +30,7 @@ function Banner() {
         backgroundSize: "cover",
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`, // ? is regex, app won't crash if no image found
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <div className="banner_contents">
