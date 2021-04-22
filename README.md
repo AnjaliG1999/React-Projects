@@ -17,3 +17,9 @@ React JS is used to create the app, Material-UI is used to style the webpage, Fi
 
 Hosted online. Click <a href="https://anjaliscakes.herokuapp.com/">here</a> to shop tasty and pretty cakes!!
 Signup, login, search cakes, view all cakes, add items in cart, order your favourite cakes, and much more. Cakeshop for Indore with Cash on Delivery. Hosted with heroku, data api used: "https://apibyashu.herokuapp.com/api"
+
+## Netflix Clone:
+
+Hosted online. Click <a href="https://netflix-clone-462f1.web.app/">here</a> to view app
+Search trending movies with different genres, get Netflix Originals and watch trailers!
+React JS is used to create the app, Firebase is used for hosting, TMDB used to get movies data.
