@@ -1,4 +1,4 @@
 export default {
-    cakeID: [],
-    cake: {}
-}
+  cakeID: [],
+  cake: {},
+};
