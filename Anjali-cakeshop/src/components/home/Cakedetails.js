@@ -71,38 +71,40 @@ function Cakedetails(props) {
         </div>
         <div className="col-5" style={{ textAlign: "left", padding: "30px" }}>
           <table style={{ width: "100%" }}>
-            <tr>
-              <th>Flavour:</th>
-              <td>{cake.flavour}</td>
-            </tr>
-            <tr>
-              <th>Weight:</th>
-              <td>{cake.weight} pounds</td>
-            </tr>
-            <tr>
-              <th>Eggless?</th>
-              {cake.eggless && <td>Yes</td>} {!cake.eggless && <td>No</td>}
-            </tr>
-            <tr>
-              <th>Ingredients</th>
-              <td>
-                {cake.ingredients && cake.ingredients.length > 0 && (
-                  <ul>
-                    {cake.ingredients.map((ingredient) => {
-                      return <li>{ingredient}</li>;
-                    })}
-                  </ul>
-                )}
-              </td>
-            </tr>
-            <tr>
-              <th>Occasion:</th>
-              <td>{cake.type}</td>
-            </tr>
-            <br />
-            <tr>
-              <td colSpan="2">{cake.description}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <th>Flavour:</th>
+                <td>{cake.flavour}</td>
+              </tr>
+              <tr>
+                <th>Weight:</th>
+                <td>{cake.weight} pounds</td>
+              </tr>
+              <tr>
+                <th>Eggless?</th>
+                {cake.eggless && <td>Yes</td>} {!cake.eggless && <td>No</td>}
+              </tr>
+              <tr>
+                <th>Ingredients</th>
+                <td>
+                  {cake.ingredients && cake.ingredients.length > 0 && (
+                    <ul>
+                      {cake.ingredients.map((ingredient) => {
+                        return <li>{ingredient}</li>;
+                      })}
+                    </ul>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <th>Occasion:</th>
+                <td>{cake.type}</td>
+              </tr>
+              <br />
+              <tr>
+                <td colSpan="2">{cake.description}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div
