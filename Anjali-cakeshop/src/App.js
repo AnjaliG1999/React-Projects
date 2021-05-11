@@ -6,7 +6,7 @@ import Search from "./components/cartAndSearch/Search";
 import Cart from "./components/cartAndSearch/Cart";
 import Login from "./components/user/Login";
 import Signup from "./components/user/Signup";
-import Product from "./components/home/Product";
+import AddCake from "./components/home/AddCake";
 import Checkout from "./components/cartAndSearch/Checkout";
 import ErrorPage from "./components/home/ErrorPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -47,7 +47,7 @@ class App extends Component {
             <Route path="/search">
               <Search query={this.state.searchQuery} />
             </Route>
-            <Route path="/product" component={Product} />
+            <Route path="/product" component={AddCake} />
             <Route path="/login">
               <Login />
             </Route>

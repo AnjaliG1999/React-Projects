@@ -1,8 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 import { Component } from "react";
 import { toast } from "react-toastify";
+import axios from "../../axios";
 
-class Product extends Component {
+class AddCake extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,28 +21,30 @@ class Product extends Component {
   uploadImage = (event) => {
     var formdata = new FormData();
     formdata.append("file", event.target.files[0]);
-    axios({
-      url: "https://apibyashu.herokuapp.com/api/upload",
-      method: "post",
-      data: formdata,
-      headers: {
-        authtoken: localStorage.token,
-      },
-    }).then(
-      (response) => {
-        console.log(response);
-        this.setState({
-          file: response.data.imageUrl,
-        });
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+
+    const headers = {
+      authtoken: localStorage.token,
+    };
+
+    axios
+      .post("/api/upload", formdata, {
+        headers,
+      })
+      .then(
+        (response) => {
+          console.log(response);
+          this.setState({
+            file: response.data.imageUrl,
+          });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   };
   saveDetails = () => {
     axios({
-      url: "https://apibyashu.herokuapp.com/api/addcake",
+      url: "/api/addcake",
       method: "post",
       data: this.state.cakeDetails,
       headers: {
@@ -77,6 +80,8 @@ class Product extends Component {
     cakeDetails.ingredients = cakeDetails.ingredients.split(", ");
     cakeDetails.image = this.state.file;
 
+    // console.log("cake details", cakeDetails);
+
     this.setState({ cakeDetails: cakeDetails }, () => {
       this.saveDetails();
     });
@@ -109,6 +114,8 @@ class Product extends Component {
     if (!elements.cakeImage.files[0]) {
       errors.cakeImage = "Cake image is required";
     }
+    // console.log(errors);
+
     this.setState({ errors: errors }, () => {
       if (Object.keys(errors).length === 0) {
         toast.success("Cake added successfully!!");
@@ -240,12 +247,12 @@ class Product extends Component {
           </div>
           <div className="row imgDiv">
             <div className="mb-3 col-4">
-              <label htmlFor="description" className="form-label">
+              <label htmlFor="additional-info" className="form-label">
                 Additional information
               </label>
               <textarea
                 className="form-control"
-                id="description"
+                id="additional-info"
                 rows="3"
               ></textarea>
             </div>
@@ -274,4 +281,4 @@ class Product extends Component {
     );
   }
 }
-export default Product;
+export default AddCake;

@@ -1,8 +1,9 @@
-import axios from "axios";
 import { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 import { connect } from "react-redux";
+
+import axios from "../../axios";
 
 const validateEmail = (email) => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -73,13 +74,10 @@ class Login extends Component {
       this.setState({ errorPw: "Enter password" });
     }
     // console.log(this.state);
-    axios({
-      url: "https://apibyashu.herokuapp.com/api/login",
-      method: "post",
-      data: { email: userEmail, password: userPassword },
-    }).then(
+
+    axios.post("/api/login", { email: userEmail, password: userPassword }).then(
       (response) => {
-        // console.log("login", response.data);
+        console.log("login", response.data);
         if (response.data.token) {
           localStorage.token = response.data.token;
           localStorage.name = response.data.name;

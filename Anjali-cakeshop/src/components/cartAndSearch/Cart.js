@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
+
 import CartItem from "./CartItem";
 import "../../css/Cart.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from "../../axios";
 
 function Cart(props) {
   var [cartList, setCartList] = useState([]);
@@ -15,7 +16,7 @@ function Cart(props) {
   const removeCartItem = (cakeid) => {
     // console.log("from cart", cakeid);
     axios({
-      url: "https://apibyashu.herokuapp.com/api/removecakefromcart",
+      url: "/api/removecakefromcart",
       method: "post",
       data: {
         email: localStorage.email,
@@ -27,7 +28,7 @@ function Cart(props) {
     }).then(
       (response) => {
         console.log(response);
-        if (response.data.message === "Removed  item from cart") {
+        if (response.data.message === "Removed item from cart") {
           var id = cartList.findIndex((item) => {
             return item.cakeid === cakeid;
           });
@@ -52,7 +53,7 @@ function Cart(props) {
 
   useEffect(() => {
     axios({
-      url: "https://apibyashu.herokuapp.com/api/cakecart",
+      url: "/api/cakecart",
       method: "post",
       data: {
         email: localStorage.email,
@@ -63,7 +64,7 @@ function Cart(props) {
     }).then(
       (response) => {
         console.log(response);
-        setCartList(response.data.data);
+        if (response.data.length !== 0) setCartList(response.data[0].cakes);
       },
       (error) => {
         console.log(error);

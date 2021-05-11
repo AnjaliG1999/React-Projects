@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../axios";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import Order from "./Order";
@@ -12,7 +12,7 @@ class OrderSuccess extends Component {
   }
   componentDidMount() {
     axios({
-      url: "https://apibyashu.herokuapp.com/api/cakeorders",
+      url: "/api/cakeorders",
       method: "post",
       data: {
         email: localStorage.email,
@@ -22,8 +22,8 @@ class OrderSuccess extends Component {
       },
     }).then(
       (response) => {
-        this.setState({ orders: response.data.cakeorders });
-        // console.log("Orders", response.data.cakeorders);
+        this.setState({ orders: response.data });
+        console.log("Orders", response.data);
       },
       (error) => {
         console.log(error);

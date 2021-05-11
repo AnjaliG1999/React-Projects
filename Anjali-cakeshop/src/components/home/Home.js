@@ -1,7 +1,7 @@
 import Carousel from "./Carousel";
 import Cake from "./Cake";
-import axios from "axios";
 import { Component } from "react";
+import axios from "../../axios";
 
 class Home extends Component {
   constructor() {
@@ -12,12 +12,9 @@ class Home extends Component {
   }
   componentDidMount = () => {
     var cakes;
-    axios({
-      url: "https://apibyashu.herokuapp.com/api/allcakes",
-      method: "get",
-    }).then(
+    axios.get("/api/allcakes").then(
       (response) => {
-        cakes = response.data.data;
+        cakes = response.data;
         this.setState({ cakes: cakes });
         // console.log("all cakes", response);
       },

@@ -2,7 +2,7 @@ import CartItem from "./CartItem";
 import { Component } from "react";
 import queryparser from "query-string";
 import { withRouter } from "react-router";
-import axios from "axios";
+import axios from "../../axios";
 
 class Search extends Component {
   text;
@@ -16,11 +16,8 @@ class Search extends Component {
   componentDidMount = () => {
     this.text = queryparser.parse(this.props.location.search).cakeQuery;
 
-    var url = "https://apibyashu.herokuapp.com/api/searchcakes?q=" + this.text;
-    axios({
-      url: url,
-      method: "get",
-    }).then(
+    var url = "/api/searchcakes?q=" + this.text;
+    axios.get(url).then(
       (response) => {
         console.log("response", response.data.data);
         this.setState({
@@ -37,9 +34,7 @@ class Search extends Component {
   componentDidUpdate = () => {
     this.text = queryparser.parse(this.props.location.search).cakeQuery;
     if (this.text !== this.state.query) {
-      var url =
-        "https://apibyashu.herokuapp.com/api/searchcakes?q=" +
-        encodeURIComponent(this.text);
+      var url = "/api/searchcakes?q=" + encodeURIComponent(this.text);
       axios({
         url: url,
         method: "get",

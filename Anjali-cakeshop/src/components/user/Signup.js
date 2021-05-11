@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import axios from "../../axios";
 
 const validateEmail = (email) => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -65,20 +65,16 @@ class Signup extends Component {
 
     this.setState({ userData: userData });
 
-    axios({
-      url: "https://apibyashu.herokuapp.com/api/register",
-      method: "post",
-      data: userData,
-    }).then(
+    axios.post("/api/register", userData).then(
       (response) => {
         // console.log("signup", response.data);
         const msg = response.data.message;
-        if (msg === "User Already Exists") toast.error(msg);
-        else toast.success(msg);
+        if (response.status === 200) toast.error(msg);
+        else if (response.status === 201) toast.success(msg);
       },
       (error) => {
         toast.error(error.data.message);
-        console.log("error:", error);
+        // console.log("error:", error);
       }
     );
   };

@@ -1,6 +1,7 @@
 import { withRouter } from "react-router";
 
 function Cake(props) {
+  // console.log(props.cakesData);
   const showCake = () => {
     var url = "/showcake/" + props.cakesData.cakeid;
     props.history.push(url);

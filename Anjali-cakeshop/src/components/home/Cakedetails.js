@@ -1,9 +1,9 @@
-import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import data from "../../data";
 import addToCart from "../../Addtocart";
+import axios from "../../axios";
 
 function Cakedetails(props) {
   const cakeToCart = () => {
@@ -20,17 +20,15 @@ function Cakedetails(props) {
 
   var { cakeid } = useParams();
   var [cake, setCake] = useState(data.cake);
-  var url = "https://apibyashu.herokuapp.com/api/cake/" + cakeid;
+  var url = "/api/cake/" + cakeid;
 
-  if (data.cake.cakeid !== cakeid) {
-    axios({
-      url: url,
-      method: "get",
-    }).then(
+  if (data.cake && data.cake.cakeid !== cakeid) {
+    console.log(data.cake);
+    axios.get(url).then(
       (response) => {
-        data.cake = response.data.data;
-        setCake(response.data.data);
-        // console.log("this cake", response);
+        data.cake = response.data[0];
+        setCake(response.data[0]);
+        // console.log("this cake", response.data[0]);
       },
       (error) => {
         console.log(error);
