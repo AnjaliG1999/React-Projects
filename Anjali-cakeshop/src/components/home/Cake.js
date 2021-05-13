@@ -20,7 +20,7 @@ function Cake(props) {
         alt="cake name"
         className="cake__item"
       />
-      <h3>{props.cakesData.name}</h3>
+      <h3 className="cake__name">{props.cakesData.name}</h3>
     </div>
   );
 }

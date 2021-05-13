@@ -2,18 +2,18 @@ import "./App.css";
 import Navbar from "./components/home/Navbar";
 import Home from "./components/home/Home";
 import Cakedetails from "./components/home/Cakedetails";
-import Search from "./components/cartAndSearch/Search";
-import Cart from "./components/cartAndSearch/Cart";
+import Search from "./components/commonComps/Search";
+import Cart from "./components/cart/Cart";
 import Login from "./components/user/Login";
 import Signup from "./components/user/Signup";
 import AddCake from "./components/home/AddCake";
-import Checkout from "./components/cartAndSearch/Checkout";
-import ErrorPage from "./components/home/ErrorPage";
+import Checkout from "./components/cart/Checkout";
+import ErrorPage from "./components/commonComps/ErrorPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResetPw from "./components/user/ResetPw";
 import { Component } from "react";
 import { ToastContainer } from "react-toastify";
-import OrderSuccess from "./components/cartAndSearch/OrderSuccess";
+import OrderSuccess from "./components/cart/OrderSuccess";
 
 class App extends Component {
   constructor() {

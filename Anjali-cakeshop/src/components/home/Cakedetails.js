@@ -37,7 +37,7 @@ function Cakedetails(props) {
   }
 
   return (
-    <div className="container">
+    <div className="container cakeInfo">
       <div className="row" style={{ padding: "20px" }}>
         <h1>{cake.name}</h1>
         <StarRatings

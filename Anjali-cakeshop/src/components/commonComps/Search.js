@@ -1,4 +1,4 @@
-import CartItem from "./CartItem";
+import CartItem from "../cart/CartItem";
 import { Component } from "react";
 import queryparser from "query-string";
 import { withRouter } from "react-router";

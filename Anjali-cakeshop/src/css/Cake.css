@@ -2,12 +2,23 @@
   text-align: center;
   border: 1px solid #2b1d0e;
   margin: 10px;
-  max-width: 300px;
-  min-width: 200px;
-  background-color: white;
+  max-width: 15%;
+  min-width: 150px;
+  background-color: wheat;
+  border-radius: 10px;
+  padding: 5px;
 }
 .cake__item {
   width: 100%;
   object-fit: contain;
   padding: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.cake__item:hover {
+  transform: scale(1.03);
+}
+
+.cakeInfo {
+  text-align: center;
 }

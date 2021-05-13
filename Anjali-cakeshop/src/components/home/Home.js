@@ -1,4 +1,5 @@
 import Carousel from "./Carousel";
+import Footer from "../commonComps/Footer";
 import Cake from "./Cake";
 import { Component } from "react";
 import axios from "../../axios";
@@ -38,6 +39,7 @@ class Home extends Component {
             return <Cake cakesData={cake} />;
           })}
         </div>
+        <Footer />
       </div>
     );
   }
