@@ -36,7 +36,7 @@ class App extends Component {
   };
   render = () => {
     return (
-      <div className="App">
+      <div className="app">
         <Router>
           <ToastContainer />
           <Navbar username={this.state.username} logOut={this.logOut} />

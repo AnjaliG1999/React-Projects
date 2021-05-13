@@ -1,114 +1,116 @@
 body {
-    background-color: #C4A484;
-    font-family:'Times New Roman', Times, serif;
+  background-color: rgb(58, 34, 18);
+  font-family: "Times New Roman", Times, serif;
 }
 h1 {
-    font-style: italic;   
+  font-style: italic;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 label {
-    margin: 10px;
+  margin: 10px;
 }
 .error-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 #ErrorToHome {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .formDiv {
-    width: 40%;
-    background-color: #2b1d0e;
-    color: white;
-    padding:20px;
-    margin-top:20px
+  width: 40%;
+  background-color: #2b1d0e;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
 }
 .cartRow {
-    padding: 15px;
-    margin: 5px;
-    border-radius:5px;
-    border:1px solid black;
-    overflow:"hidden";
-    /* height: 230px; */
+  padding: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  overflow: "hidden";
+  /* height: 230px; */
 }
-.itemName, .itemClose {
-    display: flex;
-    align-items: center;
-    margin-left: 30px;
+.itemName,
+.itemClose {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
 }
 .checkoutContainer {
-    /* display: flex;
+  /* display: flex;
     justify-content: space-around; */
-    height: 250px;
-    margin: 55px 0;
-    background-color:#2b1d0e;
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    position: fixed;
-    right: 25px
+  height: 250px;
+  margin: 55px 0;
+  background-color: #2b1d0e;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: fixed;
+  right: 25px;
 }
 .checkoutContainer h4 {
-    position: relative;
-    top: 5px
+  position: relative;
+  top: 5px;
 }
 .checkout {
-    margin: 20px;
-    color: white;
-    position: relative;
-    top: 50px;
+  margin: 20px;
+  color: white;
+  position: relative;
+  top: 50px;
 }
 .eggless {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .eggless input {
-    position: relative;
-    bottom: 5px;
+  position: relative;
+  bottom: 5px;
 }
 .eggless label {
-    position: relative;
-    bottom: 13px;
+  position: relative;
+  bottom: 13px;
 }
 .imgDiv {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .imgCarousel {
-    height: 350px;
+  height: 350px;
 }
 .optionCakes {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
 .searchCategory {
-    background-color: #2b1d0e;
-    border-radius: 5px;
-    margin-top: 5px;
-    padding: 15px;
+  background-color: #2b1d0e;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 15px;
 }
 .searchCategory h3 {
-    color: white;
-    margin-bottom: 20px;
+  color: white;
+  margin-bottom: 20px;
 }
-.searchCategory p, .searchCategory div {
-    background-color: #C4A484;
-    padding: 5px;
-    font-size: larger;
-    border-radius: 8px;
-    cursor: pointer;
+.searchCategory p,
+.searchCategory div {
+  background-color: #c4a484;
+  padding: 5px;
+  font-size: larger;
+  border-radius: 8px;
+  cursor: pointer;
 }
 .searchCategory button {
-    width: 100%;
-    background-color: transparent;
-    border: none
+  width: 100%;
+  background-color: transparent;
+  border: none;
 }
 .searchCategory .filterSearch {
-    background-color: #C4A484;
-    border: 3px solid #2b1d0e
+  background-color: #c4a484;
+  border: 3px solid #2b1d0e;
 }

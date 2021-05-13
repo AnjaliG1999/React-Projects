@@ -1,0 +1,9 @@
+.home__cakelist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #c4a484;
+  margin: 20px 40px;
+  border-radius: 5px;
+  overflow: hidden;
+}

@@ -3,6 +3,8 @@ import Cake from "./Cake";
 import { Component } from "react";
 import axios from "../../axios";
 
+import "../../css/Home.css";
+
 class Home extends Component {
   constructor() {
     super();
@@ -26,15 +28,15 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="home">
+        {/* Carousal */}
         <Carousel />
 
-        <div className="container-fluid" id="Home">
-          <div className="row">
-            {this.state.cakes.map((cake) => {
-              return <Cake cakesData={cake} />;
-            })}
-          </div>
+        {/* Cake List */}
+        <div className="home__cakelist" id="Home">
+          {this.state.cakes.map((cake) => {
+            return <Cake cakesData={cake} />;
+          })}
         </div>
       </div>
     );
