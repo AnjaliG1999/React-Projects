@@ -39,7 +39,7 @@ class Home extends Component {
             return <Cake cakesData={cake} />;
           })}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

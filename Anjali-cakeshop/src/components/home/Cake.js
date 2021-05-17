@@ -1,3 +1,4 @@
+import FA from "react-fontawesome";
 import { withRouter } from "react-router";
 
 import "../../css/Cake.css";
@@ -20,7 +21,15 @@ function Cake(props) {
         alt="cake name"
         className="cake__item"
       />
-      <h3 className="cake__name">{props.cakesData.name}</h3>
+      <p className="cake__name">{props.cakesData.name}</p>
+      <div className="cake__info">
+        <h4>
+          <FA name="f156" width="20px" height="20px" /> {props.cakesData.price}
+        </h4>
+        <div>
+          {props.cakesData.ratings} <FA name="star-half-alt" />
+        </div>
+      </div>
     </div>
   );
 }
