@@ -1,5 +1,6 @@
 import FA from "react-fontawesome";
 import { withRouter } from "react-router";
+import { StarHalf } from "@material-ui/icons";
 
 import "../../css/Cake.css";
 
@@ -21,13 +22,13 @@ function Cake(props) {
         alt="cake name"
         className="cake__item"
       />
-      <p className="cake__name">{props.cakesData.name}</p>
-      <div className="cake__info">
-        <h4>
-          <FA name="f156" width="20px" height="20px" /> {props.cakesData.price}
-        </h4>
-        <div>
-          {props.cakesData.ratings} <FA name="star-half-alt" />
+      <div style={{ padding: "0 10%" }}>
+        <span className="cake__name">{props.cakesData.name}</span>
+        <div className="cake__info">
+          <h4>&#8377; {props.cakesData.price}</h4>
+          <button>
+            {props.cakesData.ratings} <StarHalf />
+          </button>
         </div>
       </div>
     </div>

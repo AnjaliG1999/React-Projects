@@ -2,7 +2,6 @@
   margin: 0;
 }
 body {
-  /* font-family: "Poppins"; */
   background-color: #f8f8f9;
 }
 h1 {
@@ -13,4 +12,21 @@ a {
 }
 label {
   margin: 10px;
+}
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+.footer {
+  color: #2b1d0e;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+  background-color: transparent;
+  font-size: large;
+  font-weight: bold;
+  /* position: absolute;
+  bottom: 0; */
+  display: block;
 }

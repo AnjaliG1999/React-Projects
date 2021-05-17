@@ -1,5 +1,4 @@
 .cake {
-  text-align: center;
   min-width: 150px;
   border-radius: 5px;
   overflow: hidden;
@@ -7,7 +6,7 @@
   width: calc(23.5%);
   background-color: white;
   transition: all 0.25s ease-in-out 0s;
-  margin-bottom: 1.8%;
+  margin: 0.8% 0;
   box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
@@ -22,6 +21,21 @@
   transform: scale(1.03);
 }
 
-.cakeInfo {
-  text-align: center;
+.cake__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cake__name {
+  font-size: 18px;
+}
+.cake__info > button * {
+  font-size: 18px;
+}
+.cake__info > button {
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 5%;
+  overflow: hidden;
 }

@@ -14,6 +14,7 @@ import ResetPw from "./components/user/ResetPw";
 import { Component } from "react";
 import { ToastContainer } from "react-toastify";
 import OrderSuccess from "./components/cart/OrderSuccess";
+import Footer from "./components/commonComps/Footer";
 
 class App extends Component {
   constructor() {
@@ -59,6 +60,7 @@ class App extends Component {
             <Route path="/*" component={ErrorPage} />
           </Switch>
         </Router>
+        <Footer />
       </div>
     );
   };

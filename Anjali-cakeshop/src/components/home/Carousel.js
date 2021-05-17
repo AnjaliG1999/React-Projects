@@ -12,7 +12,7 @@ function Carousel() {
         <div className="carousel-item active">
           <img
             src={cake1}
-            style={{ maxHeight: "350px" }}
+            style={{ maxHeight: "450px" }}
             className="d-block w-100"
             alt="..."
           />

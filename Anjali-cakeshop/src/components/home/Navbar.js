@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import FA from "react-fontawesome";
+import { Cake, Search } from "@material-ui/icons";
 
 class Navbar extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class Navbar extends Component {
       >
         <div className="container-fluid">
           <Link to="/home" style={{ color: "white" }} className="navbar-brand">
-            My Cake Shop <FA name="birthday-cake" />
+            My Cake Shop <Cake />
           </Link>
 
           <button
@@ -161,7 +161,7 @@ class Navbar extends Component {
                 onClick={this.searchCakes}
                 type="submit"
               >
-                <FA name="search" />
+                <Search />
               </button>
             </form>
           </div>
