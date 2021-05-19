@@ -1,5 +1,12 @@
+@media screen and (max-width: 755px) {
+  .cakedata__right {
+    margin-top: 3%;
+  }
+}
+
 .cakedata {
   display: flex;
+  flex-wrap: wrap;
 }
 .cakedata__breadcrumb {
   padding: 10px;
@@ -7,9 +14,14 @@
 .cakedata__imgContainer {
   padding: 0 10px 10px;
 }
+.cakedata__img {
+  box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    0 100px 80px rgba(0, 0, 0, 0.06);
+}
 .cakedata__zoom {
   display: flex;
   justify-content: space-around;
+  font-size: 14px;
 }
 .cakedata__safety {
   display: flex;
@@ -43,11 +55,16 @@
   font-size: 22px;
 }
 
+.cakedata__right {
+  flex: 1;
+  margin-left: 5%;
+}
 .cakedata__popularity {
   font-size: 14px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 p {
   margin-bottom: 0;
@@ -59,6 +76,8 @@ p {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  max-width: 300px;
+  flex-wrap: wrap;
 }
 .cakedata__price {
   color: red;
@@ -84,4 +103,22 @@ p {
   font-size: 16px;
   margin-right: 5px;
   margin-bottom: 2px;
+}
+.cake__description {
+  margin-top: 10%;
+  background-color: white;
+  padding: 5%;
+  border-radius: 5px;
+  box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    0 100px 80px rgba(0, 0, 0, 0.06);
+}
+.cakedata__details {
+  list-style-type: none;
+}
+.cakedata__details > li::before {
+  content: "-";
+  position: relative;
+  left: -15px;
+  font-weight: 600;
+  color: gray;
 }

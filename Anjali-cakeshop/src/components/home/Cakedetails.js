@@ -32,7 +32,7 @@ function Cakedetails(props) {
 
   var { cakeid } = useParams();
   var [cake, setCake] = useState(data.cake);
-  var [ratings, setRatings] = useState(data.cake.ratings);
+  // var [ratings, setRatings] = useState(data.cake.ratings);
   var url = "/api/cake/" + cakeid;
 
   if (data.cake && data.cake.cakeid !== cakeid) {
@@ -76,7 +76,7 @@ function Cakedetails(props) {
           />
         </div>
         <div className="cakedata__zoom">
-          <p>{cake.cakeid}</p>
+          <p style={{ color: "gray" }}>{cake.cakeid}</p>
           <p>Roll over image to zoom in</p>
         </div>
         <div className="cakedata__safety">
@@ -103,8 +103,7 @@ function Cakedetails(props) {
           <p style={{ color: "#ffa534" }}>{cake.ratings}</p>
           <Rating
             name="half-rating-read"
-            value={ratings}
-            // value={cake.ratings}
+            value={3.5}
             precision={0.5}
             readOnly
           />
@@ -125,84 +124,43 @@ function Cakedetails(props) {
           </div>
         </div>
         <small style={{ paddingLeft: "10%" }}>Inclusive of all prices</small>
+
+        <div className="cake__description">
+          <h2>Description</h2>
+
+          <hr />
+          <h5>Cake Details:</h5>
+          <ul className="cakedata__details">
+            <li>Flavour: {cake.flavour}</li>
+            <li>Weight: {cake.weight}</li>
+            <li>Shape: Circle</li>
+            <li>Serves: 4-6 People</li>
+            <li>Size: 3 Pounds</li>
+            <li>Type: {cake.type}</li>
+          </ul>
+
+          <h5>About the Cake:</h5>
+          <p>{cake.description}</p>
+        </div>
+
+        <div className="cake__description">
+          <h2>Description</h2>
+
+          <hr />
+          <h5>Cake Details:</h5>
+          <ul className="cakedata__details">
+            <li>Flavour: {cake.flavour}</li>
+            <li>Weight: {cake.weight}</li>
+            <li>Shape: Circle</li>
+            <li>Serves: 4-6 People</li>
+            <li>Size: 3 Pounds</li>
+            <li>Type: {cake.type}</li>
+          </ul>
+
+          <h5>About the Cake:</h5>
+          <p>{cake.description}</p>
+        </div>
       </div>
-      {/* <div className="row" style={{ padding: "20px" }}>
-        
-      </div>
-      <div className="row">
-        <div className="col-4">
-          
-        </div>
-        <div className="col-5" style={{ textAlign: "left", padding: "30px" }}>
-          <table style={{ width: "100%" }}>
-            <tbody>
-              <tr>
-                <th>Flavour:</th>
-                <td>{cake.flavour}</td>
-              </tr>
-              <tr>
-                <th>Weight:</th>
-                <td>{cake.weight} pounds</td>
-              </tr>
-              <tr>
-                <th>Eggless?</th>
-                {cake.eggless && <td>Yes</td>} {!cake.eggless && <td>No</td>}
-              </tr>
-              <tr>
-                <th>Ingredients</th>
-                <td>
-                  {cake.ingredients && cake.ingredients.length > 0 && (
-                    <ul>
-                      {cake.ingredients.map((ingredient) => {
-                        return <li>{ingredient}</li>;
-                      })}
-                    </ul>
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th>Occasion:</th>
-                <td>{cake.type}</td>
-              </tr>
-              <br />
-              <tr>
-                <td colSpan="2">{cake.description}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div
-          className="col-3"
-          style={{
-            backgroundColor: "#2b1d0e",
-            borderRadius: "2%",
-            height: "380px",
-            textAlign: "center",
-          }}
-        >
-          <div className="row">
-            <div
-              style={{
-                margin: "auto",
-                padding: "30px",
-                fontSize: "large",
-                color: "white",
-              }}
-            >
-              <strong>Price:</strong> Rs. {cake.price}
-            </div>
-          </div>
-          <br />
-          <button
-            style={{ position: "relative", top: "160px" }}
-            type="button"
-            onClick={cakeToCart}
-            className="btn btn-primary"
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 }
