@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import StarRatings from "react-star-ratings";
+
 import data from "../../data";
 import addToCart from "../../Addtocart";
 import axios from "../../axios";
 
 import "../../css/Cakedetails.css";
 import { Breadcrumbs, Typography } from "@material-ui/core";
+import { Rating } from "@material-ui/lab";
 import {
   NavigateNext,
-  Loyalty,
   VerifiedUser,
   InsertEmoticon,
+  Security,
+  LocalOffer,
+  KeyboardArrowDown,
 } from "@material-ui/icons";
 
 function Cakedetails(props) {
@@ -29,6 +32,7 @@ function Cakedetails(props) {
 
   var { cakeid } = useParams();
   var [cake, setCake] = useState(data.cake);
+  var [ratings, setRatings] = useState(data.cake.ratings);
   var url = "/api/cake/" + cakeid;
 
   if (data.cake && data.cake.cakeid !== cakeid) {
@@ -59,7 +63,7 @@ function Cakedetails(props) {
             <Typography color="textPrimary">{cake.name}</Typography>
           </Breadcrumbs>
         </div>
-        <div className="cakedata__pics">
+        <div className="cakedata__imgContainer">
           <img
             className="cakedata__img"
             onError={(e) => {
@@ -70,39 +74,60 @@ function Cakedetails(props) {
             src={cake.image}
             alt="Error loading cake"
           />
-          <div className="cakedata__zoom">
-            <p>{cake.cakeid}</p>
-            <p>Roll over image to zoom in</p>
+        </div>
+        <div className="cakedata__zoom">
+          <p>{cake.cakeid}</p>
+          <p>Roll over image to zoom in</p>
+        </div>
+        <div className="cakedata__safety">
+          <div className="cakedata__okay">
+            <Security />
+            <div>
+              100% Smile Gauranteed
+              <p>Unique Products On Time Delivery</p>
+            </div>
           </div>
-          <div className="cakedata__safety">
-            <div>
-              <Loyalty />
-              <p>
-                100% Gauranteed <span>Unique Products On Time Delivery</span>
-              </p>
-            </div>
-            <div>
-              <p>
-                <VerifiedUser /> 100% Safe and Secure Payments.
-              </p>
-              <p>
-                <InsertEmoticon /> 6 Million People Trust Us.
-              </p>
-            </div>
+          <div className="cakedata__safe">
+            <p>
+              <VerifiedUser /> 100% Safe and Secure Payments.
+            </p>
+            <p>
+              <InsertEmoticon /> 6 Million People Trust Us.
+            </p>
           </div>
         </div>
       </div>
-      <div className="cakedata__right"></div>
-      {/* <div className="row" style={{ padding: "20px" }}>
+      <div className="cakedata__right">
         <h1>{cake.name}</h1>
-        <StarRatings
-          rating={cake.ratings}
-          starRatedColor="brown"
-          numberOfStars={5}
-          name="rating"
-          starDimension="20px"
-          starSpacing="5px"
-        />
+        <div className="cakedata__popularity">
+          <p style={{ color: "#ffa534" }}>{cake.ratings}</p>
+          <Rating
+            name="half-rating-read"
+            value={ratings}
+            // value={cake.ratings}
+            precision={0.5}
+            readOnly
+          />
+          <p style={{ color: "#3366BB" }}>{cake.reviews} Reviews</p>
+        </div>
+        <div className="cakedata__priceContainer">
+          <div className="cakedata__price">
+            <span>&#8377;</span> 599
+          </div>
+          <div className="cakedata__offer">
+            <p>
+              &#8377; <del>{cake.price}</del> <span>(14% OFF)</span>
+            </p>
+            <button className="cakedata__offerBtn" type="button">
+              <LocalOffer />
+              Offers Available <KeyboardArrowDown />
+            </button>
+          </div>
+        </div>
+        <small style={{ paddingLeft: "10%" }}>Inclusive of all prices</small>
+      </div>
+      {/* <div className="row" style={{ padding: "20px" }}>
+        
       </div>
       <div className="row">
         <div className="col-4">
