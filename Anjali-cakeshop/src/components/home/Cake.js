@@ -1,4 +1,3 @@
-import FA from "react-fontawesome";
 import { withRouter } from "react-router";
 import { StarHalf } from "@material-ui/icons";
 

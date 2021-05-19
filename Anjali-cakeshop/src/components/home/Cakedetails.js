@@ -1,9 +1,18 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import data from "../../data";
 import addToCart from "../../Addtocart";
 import axios from "../../axios";
+
+import "../../css/Cakedetails.css";
+import { Breadcrumbs, Typography } from "@material-ui/core";
+import {
+  NavigateNext,
+  Loyalty,
+  VerifiedUser,
+  InsertEmoticon,
+} from "@material-ui/icons";
 
 function Cakedetails(props) {
   const cakeToCart = () => {
@@ -37,8 +46,54 @@ function Cakedetails(props) {
   }
 
   return (
-    <div className="container cakeInfo">
-      <div className="row" style={{ padding: "20px" }}>
+    <div className="container cakedata">
+      <div className="cakedata__left">
+        <div className="cakedata__breadcrumb">
+          <Breadcrumbs
+            separator={<NavigateNext fontSize="small" />}
+            aria-label="breadcrumb"
+          >
+            <Link color="inherit" to="/">
+              Home
+            </Link>
+            <Typography color="textPrimary">{cake.name}</Typography>
+          </Breadcrumbs>
+        </div>
+        <div className="cakedata__pics">
+          <img
+            className="cakedata__img"
+            onError={(e) => {
+              e.target.onError = null;
+              e.target.src =
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png";
+            }}
+            src={cake.image}
+            alt="Error loading cake"
+          />
+          <div className="cakedata__zoom">
+            <p>{cake.cakeid}</p>
+            <p>Roll over image to zoom in</p>
+          </div>
+          <div className="cakedata__safety">
+            <div>
+              <Loyalty />
+              <p>
+                100% Gauranteed <span>Unique Products On Time Delivery</span>
+              </p>
+            </div>
+            <div>
+              <p>
+                <VerifiedUser /> 100% Safe and Secure Payments.
+              </p>
+              <p>
+                <InsertEmoticon /> 6 Million People Trust Us.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="cakedata__right"></div>
+      {/* <div className="row" style={{ padding: "20px" }}>
         <h1>{cake.name}</h1>
         <StarRatings
           rating={cake.ratings}
@@ -51,21 +106,7 @@ function Cakedetails(props) {
       </div>
       <div className="row">
         <div className="col-4">
-          <img
-            onError={(e) => {
-              e.target.onError = null;
-              e.target.src =
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png";
-            }}
-            src={cake.image}
-            alt="Error loading cake"
-            style={{
-              border: "3px solid black",
-              borderRadius: "2%",
-              width: "100%",
-              height: "380px",
-            }}
-          />
+          
         </div>
         <div className="col-5" style={{ textAlign: "left", padding: "30px" }}>
           <table style={{ width: "100%" }}>
@@ -136,7 +177,7 @@ function Cakedetails(props) {
             Add to Cart
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

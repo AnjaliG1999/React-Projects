@@ -1,4 +1,4 @@
-import FA from "react-fontawesome";
+// import FA from "react-fontawesome";
 import { withRouter } from "react-router";
 import addToCart from "../../Addtocart";
 
@@ -56,25 +56,25 @@ function CartItem(props) {
               {props.cakesData.eggless && (
                 <span>
                   {" "}
-                  <FA
+                  {/* <FA
                     name="circle"
                     style={{ color: "green", paddingLeft: "20px" }}
-                  />
+                  /> */}
                 </span>
               )}
               {!props.cakesData.eggless && (
                 <span>
                   {" "}
-                  <FA
+                  {/* <FA
                     name="circle"
                     style={{ color: "red", paddingLeft: "20px" }}
-                  />
+                  /> */}
                 </span>
               )}
             </div>
             <div className="col-md-2 itemClose">
               <button className="btn btn-primary" onClick={cakeToCart}>
-                <FA name="shopping-cart" />
+                {/* <FA name="shopping-cart" /> */}
               </button>
             </div>
           </div>
@@ -107,7 +107,7 @@ function CartItem(props) {
         </div>
         <div className="col-md-1 itemClose">
           <button className="btn btn-danger" onClick={removeFromCart}>
-            <FA name="trash" />
+            {/* <FA name="trash" /> */}
           </button>
         </div>
       </div>

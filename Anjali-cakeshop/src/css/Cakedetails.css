@@ -1,0 +1,9 @@
+.cakedata__img {
+  width: 40%;
+}
+.cakedata__breadcrumb {
+  padding: 10px;
+}
+.cakedata__breadcrumb Link {
+  list-style: none;
+}
