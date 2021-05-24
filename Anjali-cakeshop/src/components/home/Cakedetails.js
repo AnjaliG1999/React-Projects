@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { Fragment, useState } from "react";
+
 import { Link, useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 
@@ -18,6 +19,7 @@ import {
 } from "@material-ui/icons";
 
 function Cakedetails(props) {
+  const [selectedDate, handleDateChange] = useState(new Date());
   const cakeToCart = () => {
     var cake = {
       email: localStorage.email,
@@ -97,19 +99,26 @@ function Cakedetails(props) {
           </div>
         </div>
         <div className="cakedata__cart">
-          <form noValidate autoComplete="off">
-            <TextField
-              id="outlined-basic"
-              name="pincode"
-              className="cakedata__pincode"
-              label="Enter pincode"
-              variant="outlined"
-            />
-          </form>
+          <input
+            type="text"
+            className="cakedata__message"
+            placeholder="Message On Cake"
+          />
+          <TextField
+            id="datetime-local"
+            label="Delivery Date"
+            type="datetime-local"
+            defaultValue={new Date().toISOString().substr(0, 16)}
+            className="cakedata__date"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+
+          <button type="button" onClick={cakeToCart} className="btn">
+            Add to Cart
+          </button>
         </div>
-        <button type="button" onClick={cakeToCart} className="btn btn-primary">
-          Add to Cart
-        </button>
       </div>
       <div className="cakedata__right">
         <h1>{cake.name}</h1>
