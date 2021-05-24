@@ -4,6 +4,19 @@
   }
 }
 
+.MuiFormLabel-root.Mui-focused {
+  color: #2b1d0e;
+}
+.MuiOutlinedInput-notchedOutline {
+  border: none;
+}
+.nav-link {
+  width: 100%;
+}
+.list-group-item {
+  background-color: #fbebd1;
+}
+
 .cakedata {
   display: flex;
   flex-wrap: wrap;
@@ -53,6 +66,10 @@
 .cakedata__safe .MuiSvgIcon-root {
   color: gray;
   font-size: 22px;
+}
+.cakedata__pincode {
+  background-color: whitesmoke;
+  border-radius: 10px;
 }
 
 .cakedata__right {
@@ -105,20 +122,30 @@ p {
   margin-bottom: 2px;
 }
 .cake__description {
-  margin-top: 10%;
-  background-color: white;
-  padding: 5%;
+  margin-top: 0.5%;
+  background-color: #2b1d0e;
+  padding: 2%;
   border-radius: 5px;
   box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
     0 100px 80px rgba(0, 0, 0, 0.06);
+  max-width: 790px;
+  /* min-height: 390px; */
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.cakedata__details {
-  list-style-type: none;
+.cake__description > div {
+  flex: 1;
+  min-width: 200px;
 }
-.cakedata__details > li::before {
-  content: "-";
-  position: relative;
-  left: -15px;
-  font-weight: 600;
-  color: gray;
+.cakedata__details,
+.cakedata__about {
+  background-color: #fbebd1;
+  /* margin: 0 0.5%; */
+  padding: 10px;
+}
+
+.cakedata__about > p {
+  min-width: 190px;
 }

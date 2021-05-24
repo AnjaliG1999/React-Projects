@@ -7,8 +7,6 @@
   background-color: white;
   transition: all 0.25s ease-in-out 0s;
   margin: 0.8% 0;
-  box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 .cake__item {
   width: 100%;
