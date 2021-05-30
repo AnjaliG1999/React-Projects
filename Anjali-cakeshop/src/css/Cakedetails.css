@@ -28,6 +28,11 @@
 .cakedata {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.cakedata__left {
+  flex: 0.5;
+  /* margin: 3.5% 2% 0; */
 }
 .cakedata__breadcrumb {
   padding: 10px;
@@ -38,6 +43,8 @@
 .cakedata__img {
   box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
     0 100px 80px rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+  cursor: pointer;
 }
 .cakedata__zoom {
   display: flex;
@@ -52,6 +59,7 @@
   text-align: center;
   border-radius: 10px;
   border: 2px solid #2b1d0e;
+  align-self: center;
 }
 .cakedata__message {
   background-color: whitesmoke;
@@ -67,7 +75,7 @@
   margin-top: 10px !important;
 }
 .cakedata__cart > button {
-  margin-top: 5%;
+  margin: 5% 2% 0;
   width: 70%;
   background-color: #2b1d0e;
   color: white;
@@ -80,8 +88,7 @@
 
 .cakedata__right {
   flex: 1;
-  margin-left: 5%;
-  margin-top: 3.5%;
+  margin: 3.5% 2% 0;
 }
 .cakedata__header {
   background-color: white;
@@ -139,8 +146,8 @@ p {
   margin-right: 5px;
   margin-bottom: 2px;
 }
-#myTabContent {
-  box-sizing: unset;
+#myTabContent * {
+  box-sizing: initial;
 }
 .cake__description {
   margin-top: 0.5%;
@@ -176,21 +183,20 @@ p {
   margin-top: 15px;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  color: #07461f;
+  background-color: #e0c09c;
 }
 .cakedata__okay {
   display: flex;
   min-width: fit-content;
-  color: dimgray;
   font-weight: 600;
   font-size: 14px;
   min-width: 25ch;
 }
 .cakedata__okay p {
   font-size: 10px;
-  color: green;
 }
 .cakedata__okay > .MuiSvgIcon-root {
-  color: green;
   margin: 0 3px;
   font-size: 38px;
 }
@@ -200,6 +206,6 @@ p {
   padding: 0 10px 5px;
 }
 .cakedata__safe .MuiSvgIcon-root {
-  color: rgba(34, 102, 17, 0.835);
   font-size: 22px;
+  margin-right: 5px;
 }
