@@ -9,6 +9,7 @@ import axios from "../../axios";
 
 import "../../css/Cakedetails.css";
 import { Breadcrumbs, TextField, Typography } from "@material-ui/core";
+import { KeyboardDateTimePicker } from "@material-ui/pickers";
 import {
   NavigateNext,
   VerifiedUser,
@@ -81,23 +82,7 @@ function Cakedetails(props) {
           <p style={{ color: "gray" }}>{cake.cakeid}</p>
           <p>Click on the image to zoom in</p>
         </div>
-        <div className="cakedata__safety">
-          <div className="cakedata__okay">
-            <Security />
-            <div>
-              100% Smile Gauranteed
-              <p>Unique Products On Time Delivery</p>
-            </div>
-          </div>
-          <div className="cakedata__safe">
-            <p>
-              <VerifiedUser /> 100% Safe and Secure Payments.
-            </p>
-            <p>
-              <InsertEmoticon /> 6 Million People Trust Us.
-            </p>
-          </div>
-        </div>
+
         <div className="cakedata__cart">
           <input
             type="text"
@@ -113,42 +98,45 @@ function Cakedetails(props) {
             InputLabelProps={{
               shrink: true,
             }}
+            inputProps={{ min: new Date().toISOString().substr(0, 16) }}
           />
-
           <button type="button" onClick={cakeToCart} className="btn">
             Add to Cart
           </button>
         </div>
       </div>
       <div className="cakedata__right">
-        <h1>{cake.name}</h1>
-        <div className="cakedata__popularity">
-          <p style={{ color: "#ffa534" }}>{cake.ratings}</p>
-          <StarRatings
-            rating={cake.ratings}
-            starRatedColor="brown"
-            numberOfStars={5}
-            name="rating"
-            starDimension="20px"
-            starSpacing="5px"
-          />
-          <p style={{ color: "#3366BB" }}>{cake.reviews} Reviews</p>
-        </div>
-        <div className="cakedata__priceContainer">
-          <div className="cakedata__price">
-            <span>&#8377;</span> 599
+        <div className="cakedata__header">
+          <h1>{cake.name}</h1>
+
+          <div className="cakedata__popularity">
+            <p>{cake.ratings}</p>
+            <StarRatings
+              rating={cake.ratings}
+              starRatedColor="brown"
+              numberOfStars={5}
+              name="rating"
+              starDimension="20px"
+              starSpacing="5px"
+            />
+            <p>{cake.reviews} Reviews</p>
           </div>
-          <div className="cakedata__offer">
-            <p>
-              &#8377; <del>{cake.price}</del> <span>(14% OFF)</span>
-            </p>
-            <button className="cakedata__offerBtn" type="button">
-              <LocalOffer />
-              Offers Available <KeyboardArrowDown />
-            </button>
+          <div className="cakedata__priceContainer">
+            <div className="cakedata__price">
+              <span>&#8377;</span> 599
+            </div>
+            <div className="cakedata__offer">
+              <p>
+                &#8377; <del>{cake.price}</del> <span>(14% OFF)</span>
+              </p>
+              <button className="cakedata__offerBtn" type="button">
+                <LocalOffer />
+                Offers Available <KeyboardArrowDown />
+              </button>
+            </div>
           </div>
+          <small style={{ paddingLeft: "10%" }}>Inclusive of all prices</small>
         </div>
-        <small style={{ paddingLeft: "10%" }}>Inclusive of all prices</small>
 
         <ul
           className="nav nav-tabs nav-justified"
@@ -298,6 +286,22 @@ function Cakedetails(props) {
               </li>
               <li className="list-group-item">Enjoy your cake!</li>
             </ul>
+          </div>
+        </div>
+
+        <div className="cakedata__safety">
+          <p className="cakedata__safe">
+            <VerifiedUser /> 100% Safe and Secure Payments.
+          </p>
+          <p className="cakedata__safe">
+            <InsertEmoticon /> 6 Million People Trust Us.
+          </p>
+          <div className="cakedata__okay">
+            <Security />
+            <div>
+              100% Smile Gauranteed
+              <p>Unique Products On Time Delivery</p>
+            </div>
           </div>
         </div>
       </div>

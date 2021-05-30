@@ -5,5 +5,8 @@
 .home__cakelist {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
+/* .home__cakelist > * {
+  flex: 1 1 25%;
+} */
