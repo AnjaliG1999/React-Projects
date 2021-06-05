@@ -23,14 +23,17 @@ const Navbar = () => {
         user: null,
       });
     }
-  }, [user]);
+  }, []);
 
   const getQuery = (event) => {
-    this.setState({ query: event.target.value }, () => console.log(this.state));
+    dispatch({
+      type: "SET_SEARCH_QUERY",
+      query: event.target.value,
+    });
   };
   const searchCakes = (event) => {
     event.preventDefault();
-    var url = "/search?cakeQuery=" + this.state.query;
+    var url = "/search?cakeQuery=" + query;
     history.push(url);
   };
   const logOut = () => {
