@@ -1,33 +1,48 @@
-import { Component } from "react";
-import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import React, { useEffect } from "react";
+
+import { Link, useHistory } from "react-router-dom";
 import { Cake, Search } from "@material-ui/icons";
+import { useStateValue } from "../../stateMgmt/StateProvider";
 
 import "../../css/Navbar.css";
 
-class Navbar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: "new user",
-      query: "",
-    };
-  }
-  componentDidMount() {
-    this.setState({ username: this.props.username }, () => {
-      console.log("state name:", this.state.username);
-    });
-  }
-  getQuery = (event) => {
+const Navbar = () => {
+  const [{ user, query }, dispatch] = useStateValue();
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (localStorage.token) {
+      dispatch({
+        type: "SET_USER",
+        user: localStorage.name,
+      });
+    } else {
+      dispatch({
+        type: "SET_USER",
+        user: null,
+      });
+    }
+  }, [user]);
+
+  const getQuery = (event) => {
     this.setState({ query: event.target.value }, () => console.log(this.state));
   };
-  searchCakes = (event) => {
+  const searchCakes = (event) => {
     event.preventDefault();
     var url = "/search?cakeQuery=" + this.state.query;
-    this.props.history.push(url);
+    history.push(url);
   };
-  render() {
-    return (
+  const logOut = () => {
+    localStorage.clear();
+    dispatch({
+      type: "SET_USER",
+      user: null,
+    });
+  };
+
+  return (
+    <div>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top nav">
         <div className="container-fluid">
           <Link to="/home" className="navbar-brand">
@@ -59,21 +74,21 @@ class Navbar extends Component {
                   Home
                 </Link>
               </li>
-              {this.props.isLoggedIn && (
+              {user && (
                 <li className="nav-item">
                   <Link to="/cart" className="nav-link" aria-current="page">
                     Cart
                   </Link>
                 </li>
               )}
-              {this.props.isLoggedIn && (
+              {user && (
                 <li className="nav-item">
                   <Link to="/orders" className="nav-link" aria-current="page">
                     Orders
                   </Link>
                 </li>
               )}
-              {this.props.isLoggedIn && (
+              {user && (
                 <div>
                   <li className="nav-item">
                     <Link
@@ -87,7 +102,7 @@ class Navbar extends Component {
                 </div>
               )}
 
-              {!this.props.isLoggedIn && (
+              {!user && (
                 <div>
                   <li className="nav-item">
                     <Link to="/login" className="nav-link" aria-current="page">
@@ -96,8 +111,8 @@ class Navbar extends Component {
                   </li>
                 </div>
               )}
-              {this.props.isLoggedIn && (
-                <div onClick={this.props.logOut}>
+              {user && (
+                <div onClick={logOut}>
                   <li className="nav-item">
                     <Link to="/home" className="nav-link" aria-current="page">
                       Logout
@@ -105,7 +120,7 @@ class Navbar extends Component {
                   </li>
                 </div>
               )}
-              {!this.props.isLoggedIn && (
+              {!user && (
                 <div>
                   <li className="nav-item">
                     <Link to="/signup" className="nav-link" aria-current="page">
@@ -115,7 +130,7 @@ class Navbar extends Component {
                 </div>
               )}
             </ul>
-            <p className="nav__user">Hello {this.props.username}!</p>
+            <p className="nav__user">Hello {user ? user : "Guest"}!</p>
             <form className="d-flex">
               <input
                 className="form-control me-2"
@@ -123,12 +138,12 @@ class Navbar extends Component {
                 type="search"
                 placeholder="Search cakes"
                 aria-label="Search"
-                onChange={this.getQuery}
+                onChange={getQuery}
               />
               <button
                 className="btn btn-light"
-                disabled={this.state.query === ""}
-                onClick={this.searchCakes}
+                disabled={query === ""}
+                onClick={searchCakes}
                 type="submit"
               >
                 <Search />
@@ -137,13 +152,8 @@ class Navbar extends Component {
           </div>
         </div>
       </nav>
-    );
-  }
-}
-var NavbarWithRouter = withRouter(Navbar);
-export default connect(function (state) {
-  return {
-    isLoggedIn: state["isloggedin"],
-    username: state["username"],
-  };
-})(NavbarWithRouter);
+    </div>
+  );
+};
+
+export default Navbar;
