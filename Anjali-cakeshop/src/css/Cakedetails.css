@@ -1,19 +1,38 @@
-@media screen and (max-width: 755px) {
-  .cakedata__right {
-    margin-top: 3%;
-  }
-}
-
 .nav-link {
   width: 100%;
 }
+#myTab > .nav-item > button {
+  height: 100%;
+}
+#myTab > .nav-item {
+  background-color: white;
+  border: 3px solid #86623b;
+}
+#myTab > .nav-item .active {
+  background-color: #edaf87;
+  font-weight: 700;
+  font-size: large;
+}
 .list-group-item {
-  background-color: #fbebd1;
+  background-color: #edaf87;
+}
+.tab-pane.fade {
+  transition: all 0.2s;
+  transform: translateY(1rem);
+}
+
+.tab-pane.fade.show {
+  transform: translateY(0rem);
 }
 
 .cakedata {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.cakedata__left {
+  flex: 0.5;
+  /* margin: 3.5% 2% 0; */
 }
 .cakedata__breadcrumb {
   padding: 10px;
@@ -24,51 +43,23 @@
 .cakedata__img {
   box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
     0 100px 80px rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+  cursor: pointer;
 }
 .cakedata__zoom {
   display: flex;
   justify-content: space-around;
   font-size: 14px;
 }
-.cakedata__safety {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-}
-.cakedata__okay {
-  display: flex;
-  color: dimgray;
-  font-weight: 600;
-  font-size: 14px;
-  margin-right: 10px;
-}
-.cakedata__okay p {
-  font-size: 10px;
-  color: green;
-}
-.cakedata__okay > .MuiSvgIcon-root {
-  color: green;
-  margin: 0 3px;
-  font-size: 38px;
-}
-.cakedata__safe {
-  font-size: 14px;
-}
-.cakedata__safe > p {
-  margin-bottom: 5px;
-}
-.cakedata__safe .MuiSvgIcon-root {
-  color: gray;
-  font-size: 22px;
-}
 .cakedata__cart {
   margin: 10px;
-  background-color: #fbebd1;
+  background-color: #edaf87;
   max-width: 400px;
   padding: 5%;
   text-align: center;
   border-radius: 10px;
-  border: 2px solid #2b1d0e;
+  border: 2px solid #86623b;
+  align-self: center;
 }
 .cakedata__message {
   background-color: whitesmoke;
@@ -77,10 +68,16 @@
   width: 95%;
   margin-bottom: 3%;
 }
+.cakedata__date {
+  width: 90%;
+}
+.cakedata__date input {
+  margin-top: 10px !important;
+}
 .cakedata__cart > button {
-  margin-top: 5%;
+  margin: 5% 2% 0;
   width: 70%;
-  background-color: #2b1d0e;
+  background-color: #86623b;
   color: white;
   transition: all 0.1s ease-in-out 0s;
 }
@@ -91,12 +88,17 @@
 
 .cakedata__right {
   flex: 1;
-  margin-left: 5%;
+  margin: 3.5% 2% 0;
+}
+.cakedata__header {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
 }
 .cakedata__popularity {
   font-size: 14px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -105,6 +107,12 @@ p {
 }
 .cakedata__popularity > * {
   margin-right: 20px;
+  color: #86623b;
+  font-weight: 700;
+}
+.cakedata__popularity > p {
+  padding-top: 5px;
+  font-size: 16px;
 }
 .cakedata__priceContainer {
   display: flex;
@@ -138,9 +146,12 @@ p {
   margin-right: 5px;
   margin-bottom: 2px;
 }
+#myTabContent * {
+  box-sizing: initial;
+}
 .cake__description {
   margin-top: 0.5%;
-  background-color: #2b1d0e;
+  background-color: #86623b;
   padding: 2%;
   border-radius: 5px;
   box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
@@ -158,11 +169,43 @@ p {
 }
 .cakedata__details,
 .cakedata__about {
-  background-color: #fbebd1;
+  background-color: #edaf87;
   /* margin: 0 0.5%; */
   padding: 10px;
 }
 
 .cakedata__about > p {
   min-width: 190px;
+}
+.cakedata__safety {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: #07461f;
+  background-color: #e0c09c;
+}
+.cakedata__okay {
+  display: flex;
+  min-width: fit-content;
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 25ch;
+}
+.cakedata__okay p {
+  font-size: 10px;
+}
+.cakedata__okay > .MuiSvgIcon-root {
+  margin: 0 3px;
+  font-size: 38px;
+}
+.cakedata__safe {
+  font-size: 14px;
+  display: flex;
+  padding: 0 10px 5px;
+}
+.cakedata__safe .MuiSvgIcon-root {
+  font-size: 22px;
+  margin-right: 5px;
 }
