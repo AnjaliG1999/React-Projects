@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { Cake, Search } from "@material-ui/icons";
 
+import "../../css/Navbar.css";
+
 class Navbar extends Component {
   constructor() {
     super();
@@ -26,12 +28,9 @@ class Navbar extends Component {
   };
   render() {
     return (
-      <nav
-        className="navbar navbar-expand-lg navbar-light sticky-top"
-        style={{ backgroundColor: "#2b1d0e", color: "white" }}
-      >
+      <nav className="navbar navbar-expand-lg navbar-light sticky-top nav">
         <div className="container-fluid">
-          <Link to="/home" style={{ color: "white" }} className="navbar-brand">
+          <Link to="/home" className="navbar-brand">
             My Cake Shop <Cake />
           </Link>
 
@@ -54,7 +53,6 @@ class Navbar extends Component {
               <li className="nav-item">
                 <Link
                   to="/home"
-                  style={{ color: "white" }}
                   className="nav-link active"
                   aria-current="page"
                 >
@@ -63,24 +61,14 @@ class Navbar extends Component {
               </li>
               {this.props.isLoggedIn && (
                 <li className="nav-item">
-                  <Link
-                    to="/cart"
-                    style={{ color: "white" }}
-                    className="nav-link"
-                    aria-current="page"
-                  >
+                  <Link to="/cart" className="nav-link" aria-current="page">
                     Cart
                   </Link>
                 </li>
               )}
               {this.props.isLoggedIn && (
                 <li className="nav-item">
-                  <Link
-                    to="/orders"
-                    style={{ color: "white" }}
-                    className="nav-link"
-                    aria-current="page"
-                  >
+                  <Link to="/orders" className="nav-link" aria-current="page">
                     Orders
                   </Link>
                 </li>
@@ -90,7 +78,6 @@ class Navbar extends Component {
                   <li className="nav-item">
                     <Link
                       to="/product"
-                      style={{ color: "white" }}
                       className="nav-link"
                       aria-current="page"
                     >
@@ -103,12 +90,7 @@ class Navbar extends Component {
               {!this.props.isLoggedIn && (
                 <div>
                   <li className="nav-item">
-                    <Link
-                      to="/login"
-                      style={{ color: "white" }}
-                      className="nav-link"
-                      aria-current="page"
-                    >
+                    <Link to="/login" className="nav-link" aria-current="page">
                       Login
                     </Link>
                   </li>
@@ -117,12 +99,7 @@ class Navbar extends Component {
               {this.props.isLoggedIn && (
                 <div onClick={this.props.logOut}>
                   <li className="nav-item">
-                    <Link
-                      to="/home"
-                      style={{ color: "white" }}
-                      className="nav-link"
-                      aria-current="page"
-                    >
+                    <Link to="/home" className="nav-link" aria-current="page">
                       Logout
                     </Link>
                   </li>
@@ -131,21 +108,14 @@ class Navbar extends Component {
               {!this.props.isLoggedIn && (
                 <div>
                   <li className="nav-item">
-                    <Link
-                      to="/signup"
-                      style={{ color: "white" }}
-                      className="nav-link"
-                      aria-current="page"
-                    >
+                    <Link to="/signup" className="nav-link" aria-current="page">
                       Sign Up
                     </Link>
                   </li>
                 </div>
               )}
             </ul>
-            <p style={{ padding: "0 50px", marginTop: "10px" }}>
-              Hello {this.props.username}!
-            </p>
+            <p className="nav__user">Hello {this.props.username}!</p>
             <form className="d-flex">
               <input
                 className="form-control me-2"

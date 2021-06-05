@@ -107,7 +107,7 @@ class Checkout extends Component {
             border: "1px solid black",
             padding: "10px",
             borderRadius: "5px",
-            backgroundColor: "#2b1d0e",
+            backgroundColor: "#86623b",
             color: "white",
           }}
         >

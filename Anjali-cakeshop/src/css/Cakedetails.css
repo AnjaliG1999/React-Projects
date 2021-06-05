@@ -6,15 +6,15 @@
 }
 #myTab > .nav-item {
   background-color: white;
-  border: 3px solid #2b1d0e;
+  border: 3px solid #86623b;
 }
 #myTab > .nav-item .active {
-  background-color: #fbebd1;
+  background-color: #edaf87;
   font-weight: 700;
   font-size: large;
 }
 .list-group-item {
-  background-color: #fbebd1;
+  background-color: #edaf87;
 }
 .tab-pane.fade {
   transition: all 0.2s;
@@ -53,12 +53,12 @@
 }
 .cakedata__cart {
   margin: 10px;
-  background-color: #fbebd1;
+  background-color: #edaf87;
   max-width: 400px;
   padding: 5%;
   text-align: center;
   border-radius: 10px;
-  border: 2px solid #2b1d0e;
+  border: 2px solid #86623b;
   align-self: center;
 }
 .cakedata__message {
@@ -77,7 +77,7 @@
 .cakedata__cart > button {
   margin: 5% 2% 0;
   width: 70%;
-  background-color: #2b1d0e;
+  background-color: #86623b;
   color: white;
   transition: all 0.1s ease-in-out 0s;
 }
@@ -107,7 +107,7 @@ p {
 }
 .cakedata__popularity > * {
   margin-right: 20px;
-  color: #2b1d0e;
+  color: #86623b;
   font-weight: 700;
 }
 .cakedata__popularity > p {
@@ -151,7 +151,7 @@ p {
 }
 .cake__description {
   margin-top: 0.5%;
-  background-color: #2b1d0e;
+  background-color: #86623b;
   padding: 2%;
   border-radius: 5px;
   box-shadow: 0 22.3px 17.9px rgba(0, 0, 0, 0.042),
@@ -169,7 +169,7 @@ p {
 }
 .cakedata__details,
 .cakedata__about {
-  background-color: #fbebd1;
+  background-color: #edaf87;
   /* margin: 0 0.5%; */
   padding: 10px;
 }

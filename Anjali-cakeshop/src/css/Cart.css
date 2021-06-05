@@ -9,7 +9,7 @@
 }
 .formDiv {
   width: 40%;
-  background-color: #2b1d0e;
+  background-color: #86623b;
   color: white;
   padding: 20px;
   margin-top: 20px;
@@ -33,7 +33,7 @@
     justify-content: space-around; */
   height: 250px;
   margin: 55px 0;
-  background-color: #2b1d0e;
+  background-color: #86623b;
   color: white;
   padding: 20px;
   border-radius: 5px;
@@ -75,7 +75,7 @@
   height: 200px;
 }
 .searchCategory {
-  background-color: #2b1d0e;
+  background-color: #86623b;
   border-radius: 5px;
   margin-top: 5px;
   padding: 15px;
@@ -99,5 +99,5 @@
 }
 .searchCategory .filterSearch {
   background-color: #c4a484;
-  border: 3px solid #2b1d0e;
+  border: 3px solid #86623b;
 }

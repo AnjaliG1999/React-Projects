@@ -144,7 +144,7 @@ function Cakedetails(props) {
           </Dialog>
         </div>
         <div className="cakedata__zoom">
-          <p style={{ color: "#2b1d0e" }}>{cake.cakeid}</p>
+          <p style={{ color: "#86623b" }}>{cake.cakeid}</p>
           <p>Click on the image to zoom in</p>
         </div>
 

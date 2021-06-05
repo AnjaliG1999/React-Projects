@@ -13,7 +13,7 @@ class OrderItem extends Component {
         <div
           className="row"
           style={{
-            backgroundColor: "#2b1d0e",
+            backgroundColor: "#86623b",
             color: "white",
             padding: "5px",
             margin: "5px",
