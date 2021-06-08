@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/home/Navbar";
 import Home from "./components/home/Home";
-import Cakedetails from "./components/home/Cakedetails";
+import CakeDetails from "./components/home/CakeDetails";
 import Search from "./components/commonComps/Search";
 import Cart from "./components/cart/Cart";
 import Login from "./components/user/Login";
@@ -54,7 +54,7 @@ class App extends Component {
             </Route>
             <Route path="/signup" component={Signup} />
             <Route path="/forgot" component={ResetPw} />
-            <Route exact path="/showcake/:cakeid" component={Cakedetails} />
+            <Route exact path="/showcake/:cakeid" component={CakeDetails} />
             <Route path="/checkout" component={Checkout} />
             <Route path="/orders" component={OrderSuccess} />
             <Route path="/*" component={ErrorPage} />

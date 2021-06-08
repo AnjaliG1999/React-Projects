@@ -1,7 +1,7 @@
 /* Bootstrap classes */
 
 .nav .navbar-brand,
-.nav .nav-link {
+.nav__link {
   color: white !important;
 }
 .nav .navbar-brand {

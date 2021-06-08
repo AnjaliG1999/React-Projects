@@ -7,7 +7,7 @@ import data from "../../data";
 import addToCart from "../../Addtocart";
 import axios from "../../axios";
 
-import "../../css/Cakedetails.css";
+import "../../css/CakeDetails.css";
 import {
   Breadcrumbs,
   Dialog,
@@ -68,7 +68,7 @@ function Cakedetails(props) {
   // var [ratings, setRatings] = useState(data.cake.ratings);
   var url = "/api/cake/" + cakeid;
 
-  if (data.cake && data.cake.cakeid !== cakeid) {
+  if (data.cake?.cakeid !== cakeid) {
     console.log(data.cake);
     axios.get(url).then(
       (response) => {

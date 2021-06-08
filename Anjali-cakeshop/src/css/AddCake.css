@@ -1,0 +1,43 @@
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+
+.addcake {
+  background-color: white;
+  max-width: 700px;
+  margin: 2% auto;
+  padding: 2rem;
+  border-radius: 5px;
+  height: 80vh;
+  overflow: scroll;
+}
+.addcake > h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.addcake__form label {
+  margin-left: 0;
+  margin-top: 1rem;
+}
+.addcake__imgContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.addcake__imgContainer .addcake__upload {
+  flex: 1;
+}
+.addcake__imgContainer .addcake__image {
+  flex: 0.5;
+  border: 1px solid black;
+  width: 100%;
+  object-fit: contain;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+}

@@ -71,7 +71,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   to="/home"
-                  className="nav-link active"
+                  className="nav-link active nav__link"
                   aria-current="page"
                 >
                   Home
@@ -79,14 +79,22 @@ const Navbar = () => {
               </li>
               {user && (
                 <li className="nav-item">
-                  <Link to="/cart" className="nav-link" aria-current="page">
+                  <Link
+                    to="/cart"
+                    className="nav-link nav__link"
+                    aria-current="page"
+                  >
                     Cart
                   </Link>
                 </li>
               )}
               {user && (
                 <li className="nav-item">
-                  <Link to="/orders" className="nav-link" aria-current="page">
+                  <Link
+                    to="/orders"
+                    className="nav-link nav__link"
+                    aria-current="page"
+                  >
                     Orders
                   </Link>
                 </li>
@@ -96,7 +104,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link
                       to="/product"
-                      className="nav-link"
+                      className="nav-link nav__link"
                       aria-current="page"
                     >
                       Add Cake
@@ -108,7 +116,11 @@ const Navbar = () => {
               {!user && (
                 <div>
                   <li className="nav-item">
-                    <Link to="/login" className="nav-link" aria-current="page">
+                    <Link
+                      to="/login"
+                      className="nav-link nav__link"
+                      aria-current="page"
+                    >
                       Login
                     </Link>
                   </li>
@@ -117,7 +129,11 @@ const Navbar = () => {
               {user && (
                 <div onClick={logOut}>
                   <li className="nav-item">
-                    <Link to="/home" className="nav-link" aria-current="page">
+                    <Link
+                      to="/home"
+                      className="nav-link nav__link"
+                      aria-current="page"
+                    >
                       Logout
                     </Link>
                   </li>
@@ -126,7 +142,11 @@ const Navbar = () => {
               {!user && (
                 <div>
                   <li className="nav-item">
-                    <Link to="/signup" className="nav-link" aria-current="page">
+                    <Link
+                      to="/signup"
+                      className="nav-link nav__link"
+                      aria-current="page"
+                    >
                       Sign Up
                     </Link>
                   </li>
