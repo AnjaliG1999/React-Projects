@@ -6,7 +6,7 @@ import { useStateValue } from "../../stateMgmt/StateProvider";
 import axios from "../../axios";
 import { handleEmail, handlePassword } from "./handleValidation";
 
-import "./Form.css";
+import "../../css/Form.css";
 
 const Login = () => {
   const history = useHistory();
@@ -48,10 +48,10 @@ const Login = () => {
     const userPassword = elements["loginPassword"].value;
 
     if (handleEmail(userEmail).errorEmail) {
-      setErrorEmail("Enter email");
+      setErrorEmail("Invalid email");
     }
     if (handlePassword(userPassword).errorPw) {
-      setErrorPw("Enter password");
+      setErrorPw("Invalid password");
     } else {
       axios
         .post("/api/login", { email: userEmail, password: userPassword })
@@ -79,54 +79,52 @@ const Login = () => {
   };
   return (
     <div className="container row login">
-      <div className="formDiv">
-        <h2>Login</h2>
-        <form className="g-3" onSubmit={handleSubmit}>
-          <div className="col-md-12">
-            <label htmlFor="loginEmail" className="form-label">
-              Email
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              onChange={handleInputs}
-              name="loginEmail"
-              id="loginEmail"
-              placeholder="Enter your email (required)"
-            />
-            <div className="text-danger">{errorEmail}</div>
-          </div>
-          <div className="col-md-12">
-            <label htmlFor="loginPassword" className="form-label">
-              Password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              onChange={handleInputs}
-              name="loginPassword"
-              id="loginPassword"
-              placeholder="Enter your password (required)"
-            />
-            <div className="text-danger">{errorPw}</div>
-          </div>
-          <br />
-          <div className="col-12">
-            <button
-              type="submit"
-              name="loginButton"
-              className="btn btn-primary w-100"
-            >
-              Sign in
-            </button>
-          </div>
-        </form>
-        <p className="member1">
-          Not a user? Sign up <Link to="/signup">here</Link>
-          <br />
-          <Link to="/forgot">Forgot password</Link>
-        </p>
-      </div>
+      <h2>Login</h2>
+      <form className="g-3" onSubmit={handleSubmit}>
+        <div className="col-md-12">
+          <label htmlFor="loginEmail" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            onChange={handleInputs}
+            name="loginEmail"
+            id="loginEmail"
+            placeholder="Enter your email (required)"
+          />
+          <small className="text-danger">{errorEmail}</small>
+        </div>
+        <div className="col-md-12">
+          <label htmlFor="loginPassword" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            onChange={handleInputs}
+            name="loginPassword"
+            id="loginPassword"
+            placeholder="Enter your password (required)"
+          />
+          <small className="text-danger">{errorPw}</small>
+        </div>
+        <br />
+        <div className="col-12">
+          <button
+            type="submit"
+            name="loginButton"
+            className="btn btn-primary w-100"
+          >
+            Sign in
+          </button>
+        </div>
+      </form>
+      <small className="login__member">
+        Not a user? Sign up <Link to="/signup">here</Link>
+        <br />
+        <Link to="/forgot">Forgot password</Link>
+      </small>
     </div>
   );
 };
