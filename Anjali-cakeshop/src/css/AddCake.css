@@ -24,6 +24,15 @@
   margin-left: 0;
   margin-top: 1rem;
 }
+.addcake__serves {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.addcake__serves * {
+  flex: 1 1 40%;
+}
 .addcake__imgContainer {
   display: flex;
   flex-wrap: wrap;
@@ -40,4 +49,11 @@
   text-align: center;
   padding: 0.5rem;
   border-radius: 5px;
+}
+.addcake__submit {
+  background-color: #edaf87;
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 5px;
+  width: 6rem;
 }

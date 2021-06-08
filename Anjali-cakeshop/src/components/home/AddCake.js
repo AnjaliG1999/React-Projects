@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import axios from "../../axios";
@@ -16,6 +16,9 @@ const AddCake = () => {
 
   const [cakeImg, setCakeImg] = useState("");
   const [cake, setCake] = useState({});
+  const [errors, setErrors] = useState({});
+
+  // useEffect(() => {}, [cake, errors]);
 
   const uploadImage = (event) => {
     var formdata = new FormData();
@@ -50,6 +53,15 @@ const AddCake = () => {
     }).then(
       (response) => {
         console.log(response);
+        if (response.status === 201) {
+          toast.success("Cake added successfully!!");
+          setTimeout(() => {
+            history.push("/");
+          }, 2000);
+        } else if (response.status === 212) {
+          toast.error("Enter valid data");
+          setErrors(response.data.errors);
+        }
       },
       (error) => {
         console.log(error);
@@ -58,6 +70,7 @@ const AddCake = () => {
   };
   const getObject = (event, cakeDetails) => {
     for (const el of event.target.elements) {
+      // ignore button
       if (el.id === "") {
         continue;
       }
@@ -74,44 +87,8 @@ const AddCake = () => {
   const validateInfo = (event) => {
     event.preventDefault();
     let cakeDetails = {};
-    // this.setState({ errors: {} });
 
-    /* Add backend validations */
-
-    // const elements = event.target.elements;
-    // if (!elements.cakeName.value) {
-    //   errors.cakeName = "Name is required";
-    // }
-    // if (elements.flavour.value === "--None--") {
-    //   errors.flavour = "flavour is required";
-    // }
-    // if (!elements.description.value) {
-    //   errors.description = "Description is required";
-    // }
-    // if (!elements.ingredients.value) {
-    //   errors.ingredients = "Ingredients are required";
-    // }
-    // if (!elements.weight.value) {
-    //   errors.weight = "Weight is required";
-    // }
-    // if (!elements.price.value) {
-    //   errors.price = "Price is required";
-    // }
-    // if (!elements.cakeImage.files[0]) {
-    //   errors.cakeImage = "Cake image is required";
-    // }
-    // console.log(errors);
-
-    // this.setState({ errors: errors }, () => {
-    //   if (Object.keys(errors).length === 0) {
-    //     toast.success("Cake added successfully!!");
-    //     setTimeout(() => {
-    //       this.props.history.push("/");
-    //     }, 2000);
-    //   } else {
-    //     toast.error("Enter valid data");
-    //   }
-    // });
+    /* Previous data being displayed!!!!!!!!! Change state after api response */
 
     getObject(event, cakeDetails);
   };
@@ -122,23 +99,18 @@ const AddCake = () => {
         <div>
           <label htmlFor="name">Enter Cake Name</label>
           <input type="text" className="form-control" id="name" name="name" />
-          {/* {state.errors && (
-            <div className="text-danger">{state.errors.name}</div>
-          )} */}
+          <small className="text-danger">{errors.name?.message}</small>
         </div>
         <div>
           <label htmlFor="flavour">Flavour</label>
           <select id="flavour" className="form-control">
-            <option defaultValue="none">--None--</option>
-            <option value="chocolate">Chocolate</option>
+            <option defaultValue="chocolate">Chocolate</option>
             <option value="strawberry">Strawberry</option>
             <option value="fruit">Fruit</option>
             <option value="raspberry">Raspberry</option>
             <option value="black forest">Black Forest</option>
           </select>
-          {/* {state.errors && (
-            <div className="text-danger">{state.errors.flavour}</div>
-          )} */}
+          <small className="text-danger">{errors.flavour?.message}</small>
         </div>
         <div>
           <label htmlFor="description" className="form-label">
@@ -149,9 +121,7 @@ const AddCake = () => {
             id="description"
             rows="3"
           ></textarea>
-          {/* {state.errors && (
-            <div className="text-danger">{state.errors.description}</div>
-          )} */}
+          <small className="text-danger">{errors.description?.message}</small>
         </div>
         <div>
           <label htmlFor="weight">Weight (in pounds)</label>
@@ -161,19 +131,17 @@ const AddCake = () => {
             max="5"
             className="form-control"
             id="weight"
-            placeholder="What cake size are you looking for?"
             name="weight"
           />
-          {/* {state.errors && (
-            <div className="text-danger">{state.errors.weight}</div>
-          )} */}
+          <small className="text-danger">{errors.weight?.message}</small>
         </div>
         <div>
           <label htmlFor="type">Cake Type</label>
           <select id="type" className="form-control">
-            <option selected>General</option>
+            <option defaultValue>General</option>
             <option>Birthday</option>
             <option>Anniversary</option>
+            <option>Cartoon</option>
             <option>Photo Cakes</option>
           </select>
         </div>
@@ -186,9 +154,40 @@ const AddCake = () => {
             className="form-control"
             placeholder="Price in Rupees"
           />
-          {/* {state.errors && (
-            <div className="text-danger">{state.errors.price}</div>
-          )} */}
+          <small className="text-danger">{errors.price?.message}</small>
+        </div>
+        <div>
+          <label htmlFor="shape">Cake Shape</label>
+          <select id="shape" className="form-control">
+            <option defaultValue>Circle</option>
+            <option>Square</option>
+            <option>Rectangle</option>
+            <option>Heart</option>
+            <option>Donut</option>
+            <option>Custom</option>
+          </select>
+        </div>
+        <div className="addcake__serves mt-4">
+          <div>
+            <label htmlFor="servesMin">Serves Minimum</label>
+            <input
+              type="number"
+              id="servesMin"
+              name="servesMin"
+              className="form-control"
+            />
+            <small className="text-danger">{errors.servesMin?.message}</small>
+          </div>
+          <div>
+            <label htmlFor="servesMax">Serves Maximum</label>
+            <input
+              type="number"
+              id="servesMax"
+              name="servesMax"
+              className="form-control"
+            />
+            <small className="text-danger">{errors.servesMax?.message}</small>
+          </div>
         </div>
         <div className="addcake__imgContainer mt-4">
           <div className="mb-3 addcake__upload">
@@ -198,9 +197,11 @@ const AddCake = () => {
               id="image"
               onChange={uploadImage}
             />
-            {!cakeImg && (
-              <div className="text-danger">{"no image selected"}</div>
-            )}
+            <small className="text-danger">{errors.image?.message}</small>
+
+            <button type="submit" className="addcake__submit mt-4">
+              Add Cake
+            </button>
           </div>
           <div className="mb-3 addcake__image">
             {cakeImg && <img src={cakeImg} alt="choosen cake" width="150px" />}
@@ -213,9 +214,6 @@ const AddCake = () => {
             )}
           </div>
         </div>
-        <button type="submit" className="btn btn-success">
-          Add Cake
-        </button>
       </form>
     </div>
   );
