@@ -23,6 +23,7 @@
   margin-top: 2rem;
   min-width: 350px;
   border-radius: 5px;
+  max-width: 500px;
 }
 .login label {
   margin: 1rem 0 0.5rem;

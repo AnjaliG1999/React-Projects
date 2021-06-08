@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "../../axios";
-import { validateEmail, validatePassword } from "./validate";
 import { handleEmail, handlePassword } from "./handleValidation";
 
 import "../../css/Form.css";
@@ -19,35 +18,43 @@ const Signup = () => {
 
   const [errorEmail, setErrorEmail] = useState(null);
   const [errorPw, setErrorPw] = useState(null);
+  const [errorName, setErrorName] = useState(null);
 
-  const handleErrors = (event) => {
-    let errors = {};
+  useEffect(() => {}, [errorEmail, errorPw, errorName]);
+
+  const setData = (event) => {
+    event.preventDefault();
     const elements = event.target.elements;
     const userName = elements["inputName"].value;
     const userEmail = elements["inputEmail"].value;
     const userPassword = elements["inputPassword"].value;
 
-    // if (!userEmail) errors["email"] = "Email is required";
-    // else if (!validateEmail(userEmail)) errors["email"] = "Enter valid email";
-    // if (!userPassword) errors["password"] = "Password is required";
-    // else if (!validatePassword(userPassword))
-    //   errors["password"] =
-    //     "Password should have minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
-    // if (!userName) errors["name"] = "Name is required";
-    // else {
-    //   handleSubmit(userEmail, userPassword, userName);
-    // }
-    // setState({
-    //   errors: errors,
-    // });
-  };
+    const emailValid = handleEmail(userEmail);
+    const passwordValid = handlePassword(userPassword);
 
-  const setData = (event) => {
-    event.preventDefault();
-    // setState({
-    //   errors: {},
-    // });
-    handleErrors(event);
+    if (emailValid.errorEmail) {
+      setErrorEmail(emailValid.errorEmail);
+    } else {
+      setErrorEmail(null);
+    }
+
+    if (passwordValid.errorPw) {
+      setErrorPw(passwordValid.errorPw);
+    } else {
+      setErrorPw(null);
+    }
+    if (!userName) {
+      setErrorName("Enter Name");
+    } else {
+      setErrorName(null);
+    }
+
+    if (!emailValid.errorEmail && !passwordValid.errorPw && userName) {
+      setErrorEmail(null);
+      setErrorPw(null);
+      setErrorName(null);
+      handleSubmit(userEmail, userPassword, userName);
+    }
   };
 
   const handleSubmit = (userEmail, userPassword, userName) => {
@@ -55,8 +62,6 @@ const Signup = () => {
     userData["email"] = userEmail;
     userData["password"] = userPassword;
     userData["name"] = userName;
-
-    // setState({ userData: userData });
 
     axios.post("/api/register", userData).then(
       (response) => {
@@ -66,8 +71,7 @@ const Signup = () => {
         else if (response.status === 201) toast.success(msg);
       },
       (error) => {
-        toast.error(error.data.message);
-        // console.log("error:", error);
+        toast.error(error.data);
       }
     );
   };
@@ -86,7 +90,7 @@ const Signup = () => {
             id="inputEmail"
             placeholder="Enter your email (required)"
           />
-          {/* <div className="text-danger">{state.errors.email}</div> */}
+          <small className="text-danger">{errorEmail}</small>
         </div>
         <div className="col-md-12">
           <label htmlFor="inputPassword" className="form-label">
@@ -99,7 +103,7 @@ const Signup = () => {
             id="inputPassword"
             placeholder="Enter your password (required)"
           />
-          {/* <div className="text-danger">{state.errors.password}</div> */}
+          <small className="text-danger">{errorPw}</small>
         </div>
         <div className="col-12">
           <label htmlFor="inputName" className="form-label">
@@ -112,7 +116,7 @@ const Signup = () => {
             id="inputName"
             placeholder="Enter your name (required)"
           />
-          {/* <div className="text-danger">{state.errors.name}</div> */}
+          <small className="text-danger">{errorName}</small>
         </div>
         <br />
         <div className="col-12">
@@ -121,12 +125,11 @@ const Signup = () => {
           </button>
         </div>
       </form>
-      <br />
-      <p className="member">
+      <small className="login__member">
         Already a user?
         <br />
         Login <Link to="/login">here</Link>
-      </p>
+      </small>
     </div>
   );
 };
