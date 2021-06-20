@@ -69,7 +69,7 @@ function Cakedetails(props) {
   var url = "/api/cake/" + cakeid;
 
   if (data.cake?.cakeid !== cakeid) {
-    console.log(data.cake);
+    // console.log(data.cake);
     axios.get(url).then(
       (response) => {
         data.cake = response.data[0];

@@ -191,13 +191,15 @@ const AddCake = () => {
         </div>
         <div className="addcake__imgContainer mt-4">
           <div className="mb-3 addcake__upload">
-            <input
-              className="form-control"
-              type="file"
-              id="image"
-              onChange={uploadImage}
-            />
-            <small className="text-danger">{errors.image?.message}</small>
+            <div>
+              <input
+                className="form-control"
+                type="file"
+                id="image"
+                onChange={uploadImage}
+              />
+              <small className="text-danger">{errors.image?.message}</small>
+            </div>
 
             <button type="submit" className="addcake__submit mt-4">
               Add Cake

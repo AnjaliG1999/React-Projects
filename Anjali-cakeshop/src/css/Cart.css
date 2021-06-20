@@ -1,4 +1,4 @@
-.error-container {
+/* .error-container {
   display: flex;
   align-items: center;
 }
@@ -6,56 +6,66 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+} */
+.cart__container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.cart__info {
+  background-color: #5c0029;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.cart__info > h4 {
+  font-weight: 400;
+  font-style: oblique;
+  min-width: fit-content;
+  padding: 0 2rem;
+}
+.cart__checkout {
+  border: 1px solid none;
+  background-color: #fff;
+  width: 10rem;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+}
+.cart__items {
+  overflow: scroll;
+  max-height: 70vh;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in #5c0029 */
+::-webkit-scrollbar-thumb {
+  background: #5c0029 !important;
+}
+.cart__item {
+  padding: 2rem;
+  margin: 0.3rem 0 0.6rem;
+  border-radius: 5px;
+  overflow: "hidden";
+  background-color: #edaf87;
+  min-height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.cartRow {
-  padding: 15px;
-  margin: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-  overflow: "hidden";
-  /* height: 230px; */
-}
 .itemName,
 .itemClose {
   display: flex;
   align-items: center;
   margin-left: 30px;
-}
-.checkoutContainer {
-  /* display: flex;
-    justify-content: space-around; */
-  height: 250px;
-  margin: 55px 0;
-  background-color: #86623b;
-  color: white;
-  padding: 20px;
-  border-radius: 5px;
-  position: fixed;
-  right: 25px;
-}
-.checkoutContainer h4 {
-  position: relative;
-  top: 5px;
-}
-.checkout {
-  margin: 20px;
-  color: white;
-  position: relative;
-  top: 50px;
-}
-.eggless {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.eggless input {
-  position: relative;
-  bottom: 5px;
-}
-.eggless label {
-  position: relative;
-  bottom: 13px;
 }
 .imgDiv {
   display: flex;

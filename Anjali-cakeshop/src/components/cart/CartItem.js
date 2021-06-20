@@ -1,6 +1,6 @@
-// import FA from "react-fontawesome";
 import { withRouter } from "react-router";
 import addToCart from "../../Addtocart";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 function CartItem(props) {
   const cakeToCart = () => {
@@ -53,24 +53,6 @@ function CartItem(props) {
           <div className="row">
             <div className="col-md-8 itemName">
               <h3>{props.cakesData.name}</h3>
-              {props.cakesData.eggless && (
-                <span>
-                  {" "}
-                  {/* <FA
-                    name="circle"
-                    style={{ color: "green", paddingLeft: "20px" }}
-                  /> */}
-                </span>
-              )}
-              {!props.cakesData.eggless && (
-                <span>
-                  {" "}
-                  {/* <FA
-                    name="circle"
-                    style={{ color: "red", paddingLeft: "20px" }}
-                  /> */}
-                </span>
-              )}
             </div>
             <div className="col-md-2 itemClose">
               <button className="btn btn-primary" onClick={cakeToCart}>
@@ -88,8 +70,8 @@ function CartItem(props) {
     );
   } else if (props.fromLocation === "cart") {
     return (
-      <div className="row cartRow" style={{ padding: "5px" }}>
-        <div className="col-md-2">
+      <div className="cart__item" style={{ padding: "5px" }}>
+        <div className="">
           <img
             src={props.cakesData.image}
             style={{ cursor: "pointer" }}
@@ -99,15 +81,15 @@ function CartItem(props) {
             alt="cake name"
           />
         </div>
-        <div className="col-md-4 itemName">
+        <div className="itemName">
           <h3>{props.cakesData.name}</h3>
         </div>
-        <div className="col-md-3 itemName">
+        <div className="itemName">
           <p>Rs. {props.cakesData.price}</p>
         </div>
-        <div className="col-md-1 itemClose">
+        <div className="itemClose">
           <button className="btn btn-danger" onClick={removeFromCart}>
-            {/* <FA name="trash" /> */}
+            <DeleteOutlineIcon />
           </button>
         </div>
       </div>

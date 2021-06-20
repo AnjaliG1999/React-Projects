@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 
 import CartItem from "./CartItem";
+import { CircularProgress } from "@material-ui/core";
 import "../../css/Cart.css";
 import axios from "../../axios";
 
 function Cart(props) {
+  var [loading, setLoading] = useState(true);
   var [cartList, setCartList] = useState([]);
   var totalPrice = 0;
   var totalItems = 0;
@@ -64,7 +66,10 @@ function Cart(props) {
     }).then(
       (response) => {
         console.log(response);
-        if (response.data.length !== 0) setCartList(response.data[0].cakes);
+        if (response.data.length !== 0) {
+          setCartList(response.data[0].cakes);
+          setLoading(false);
+        }
       },
       (error) => {
         console.log(error);
@@ -73,36 +78,34 @@ function Cart(props) {
   }, []);
 
   return (
-    <div className="Cart">
-      <div className="container" id="Cart">
-        {cartList && cartList.length > 0 && (
-          <div className="row">
-            <div className="col-8">
-              <h1 style={{ textAlign: "center" }}>Your Cart</h1>
-              {cartList.map((item) => {
-                totalPrice += item.price;
-                totalItems += 1;
-                return (
-                  <CartItem
-                    cakesData={item}
-                    removeCartItem={removeCartItem}
-                    fromLocation={"cart"}
-                  />
-                );
-              })}
-            </div>
+    <div className="cart">
+      <h1 style={{ textAlign: "center" }}>Your Cart</h1>
 
-            <div className="checkoutContainer col-4">
-              <h4>Total Items: {totalItems}</h4>
-              <h4>Grand Total: Rs.{totalPrice}</h4>
-              <button onClick={addAddress} className="btn btn-primary checkout">
-                Checkout
-              </button>
-            </div>
-          </div>
-        )}
-        <div>
-          {(!cartList || !cartList.length > 0) && <h2>Your Cart is empty</h2>}
+      <div className="cart__container">
+        <div className="cart__info">
+          <h4>Total Items: {totalItems}</h4>
+          <h4>Grand Total: Rs. {totalPrice}</h4>
+          <button onClick={addAddress} className="cart__checkout">
+            Checkout
+          </button>
+        </div>
+
+        <div className="cart__items">
+          {loading && <CircularProgress />}
+          {!loading && !cartList?.length > 0 && <h2>Your Cart is empty</h2>}
+          {!loading &&
+            cartList.map((item) => {
+              totalPrice += item.price;
+              totalItems += 1;
+              return (
+                <CartItem
+                  key={item.cakeids}
+                  cakesData={item}
+                  removeCartItem={removeCartItem}
+                  fromLocation={"cart"}
+                />
+              );
+            })}
         </div>
       </div>
     </div>
