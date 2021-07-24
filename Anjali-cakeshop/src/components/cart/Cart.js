@@ -62,9 +62,9 @@ function Cart(props) {
     }).then(
       (response) => {
         console.log(response);
+        setLoading(false);
         if (response.data.length !== 0) {
           setCartList(response.data[0].cakes);
-          setLoading(false);
         }
       },
       (error) => {
@@ -88,12 +88,12 @@ function Cart(props) {
 
         <div className="cart__items">
           {loading && <CircularProgress />}
-          {!loading && !cartList?.length > 0 && <h2>Your Cart is empty</h2>}
+          {!loading && !cartList?.length && <h4>Your Cart is empty</h4>}
           {!loading &&
             cartList.map((item) => {
               return (
                 <CartItem
-                  key={item.cakeids}
+                  key={item.cakeid}
                   cakesData={item}
                   removeCartItem={removeCartItem}
                   fromLocation={"cart"}

@@ -103,20 +103,20 @@ class Checkout extends Component {
         <div className="col-4 checkout">
           <h3>Enter your details</h3>
           <form onSubmit={this.validateDetails}>
-            <label for="inputName">Name</label>
+            <label htmlFor="inputName">Name</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="inputName"
               placeholder="Name"
             />
             <small className="text-danger">{this.state.errors.name}</small>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="inputPhone">Phone</label>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="inputPhone">Phone</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="inputPhone"
                   placeholder="Phone number"
                 />
@@ -124,11 +124,11 @@ class Checkout extends Component {
               </div>
             </div>
             <div className="form-row">
-              <div class="form-group">
-                <label for="inputAddress">Address</label>
+              <div className="form-group">
+                <label htmlFor="inputAddress">Address</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="inputAddress"
                   placeholder="1234 Main St"
                 />
@@ -137,23 +137,23 @@ class Checkout extends Component {
                 </small>
               </div>
             </div>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity" />
+            <div className="row">
+              <div className="form-group col-md-6">
+                <label htmlFor="inputCity">City</label>
+                <input type="text" className="form-control" id="inputCity" />
                 <small className="text-danger">{this.state.errors.city}</small>
               </div>
-              <div class="form-group col-md-6">
-                <label for="inputPincode">Pincode</label>
-                <input type="text" class="form-control" id="inputPincode" />
+              <div className="form-group col-md-6">
+                <label htmlFor="inputPincode">Pincode</label>
+                <input type="text" className="form-control" id="inputPincode" />
                 <small className="text-danger">
                   {this.state.errors.pincode}
                 </small>
               </div>
             </div>
 
-            <div class="form-group" style={{ paddingTop: "15px" }}>
-              <button type="submit" class="btn btn-primary w-100">
+            <div className="form-group" style={{ paddingTop: "15px" }}>
+              <button type="submit" className="btn btn-primary w-100">
                 Order Cake
               </button>
             </div>

@@ -5,6 +5,7 @@ const addToCart = (props, cake) => {
   if (!localStorage.token) {
     props.history.push("/login");
   } else {
+    cake["owner"] = { email: localStorage.email, name: localStorage.name };
     console.log("add cake", cake);
     axios({
       url: "/api/addcaketocart",

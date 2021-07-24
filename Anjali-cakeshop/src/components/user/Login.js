@@ -61,6 +61,7 @@ const Login = () => {
             if (response.data.token) {
               localStorage.token = response.data.token;
               localStorage.name = response.data.name;
+              localStorage.email = response.data.email;
 
               dispatch({
                 type: "SET_USER",

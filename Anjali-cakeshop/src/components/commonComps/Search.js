@@ -146,7 +146,7 @@ class Search extends Component {
                         <b>Weight</b>
                       </button>
                       <ul
-                        class="collapse"
+                        className="collapse"
                         id="collapseWeight"
                         style={{ listStyle: "none", textAlign: "left" }}
                       >
@@ -167,7 +167,7 @@ class Search extends Component {
                         <b>Price</b>
                       </button>
                       <ul
-                        class="collapse"
+                        className="collapse"
                         id="collapsePrice"
                         style={{ listStyle: "none", textAlign: "left" }}
                       >

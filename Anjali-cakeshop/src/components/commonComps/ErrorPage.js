@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 function ErrorPage() {
   const errorImg = "img/404.png";
   return (
-    <div class="container row error-container">
-      <div class="errorImg col-8">
+    <div className="container row error-container">
+      <div className="errorImg col-8">
         <img src={errorImg} alt="404 Page not found" height="500px" />
       </div>
-      <div id="ErrorToHome" class="errorImg col-4">
+      <div id="ErrorToHome" className="errorImg col-4">
         <h2>Oops!</h2>
         <h3>PAGE NOT FOUND</h3>
         <br />

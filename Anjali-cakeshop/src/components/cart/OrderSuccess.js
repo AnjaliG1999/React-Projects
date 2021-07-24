@@ -33,7 +33,7 @@ class OrderSuccess extends Component {
   render() {
     return (
       <div>
-        <h1>Your Orders</h1>
+        <h1 style={{ textAlign: "center" }}>Your Orders</h1>
 
         {this.state.orders && this.state.orders.length > 0 && (
           <div className="container">
