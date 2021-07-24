@@ -1,6 +1,5 @@
 /* Bootstrap classes */
 .text-danger {
-  text-align: center;
   font-size: 12px;
   margin: 1rem auto;
 }
@@ -13,7 +12,9 @@
 }
 
 /* My custom classes */
-.login {
+.login,
+.signup,
+.checkout {
   display: grid;
   place-items: center;
   margin: 0 auto;
@@ -25,7 +26,9 @@
   border-radius: 5px;
   max-width: 500px;
 }
-.login label {
+.login label,
+.signup label,
+.checkout label {
   margin: 1rem 0 0.5rem;
 }
 .login__member {

@@ -65,7 +65,6 @@ const Signup = () => {
 
     axios.post("/api/register", userData).then(
       (response) => {
-        // console.log("signup", response.data);
         const msg = response.data.message;
         if (response.status === 200) toast.error(msg);
         else if (response.status === 201) toast.success(msg);
@@ -76,7 +75,7 @@ const Signup = () => {
     );
   };
   return (
-    <div className="container row login">
+    <div className="container row signup">
       <h2>Register</h2>
       <form className="g-3" onSubmit={setData}>
         <div className="col-md-12">
