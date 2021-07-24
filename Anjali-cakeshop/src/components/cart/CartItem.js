@@ -1,6 +1,6 @@
 import { withRouter } from "react-router";
 import addToCart from "../../Addtocart";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import { DeleteOutline, ShoppingCart } from "@material-ui/icons";
 
 function CartItem(props) {
   const cakeToCart = () => {
@@ -56,7 +56,7 @@ function CartItem(props) {
             </div>
             <div className="col-md-2 itemClose">
               <button className="btn btn-primary" onClick={cakeToCart}>
-                {/* <FA name="shopping-cart" /> */}
+                <ShoppingCart />
               </button>
             </div>
           </div>
@@ -75,8 +75,8 @@ function CartItem(props) {
           <img
             src={props.cakesData.image}
             style={{ cursor: "pointer" }}
-            width="50px"
-            height="50px"
+            width="100px"
+            height="100px"
             onClick={showCake}
             alt="cake name"
           />
@@ -89,7 +89,7 @@ function CartItem(props) {
         </div>
         <div className="itemClose">
           <button className="btn btn-danger" onClick={removeFromCart}>
-            <DeleteOutlineIcon />
+            <DeleteOutline />
           </button>
         </div>
       </div>

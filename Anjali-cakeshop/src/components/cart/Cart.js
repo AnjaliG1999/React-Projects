@@ -8,15 +8,13 @@ import axios from "../../axios";
 function Cart(props) {
   var [loading, setLoading] = useState(true);
   var [cartList, setCartList] = useState([]);
-  var totalPrice = 0;
-  var totalItems = 0;
+  var totalPrice = cartList.reduce((a, b) => +a + +b.price, 0);
 
   if (!localStorage.token) {
     props.history.push("/login");
   }
 
   const removeCartItem = (cakeid) => {
-    // console.log("from cart", cakeid);
     axios({
       url: "/api/removecakefromcart",
       method: "post",
@@ -29,7 +27,6 @@ function Cart(props) {
       },
     }).then(
       (response) => {
-        console.log(response);
         if (response.data.message === "Removed item from cart") {
           var id = cartList.findIndex((item) => {
             return item.cakeid === cakeid;
@@ -39,7 +36,6 @@ function Cart(props) {
             cartList.splice(id, 1);
             setCartList([...cartList]);
           }
-          console.log(id);
         }
       },
       (error) => {
@@ -83,7 +79,7 @@ function Cart(props) {
 
       <div className="cart__container">
         <div className="cart__info">
-          <h4>Total Items: {totalItems}</h4>
+          <h4>Total Items: {cartList.length}</h4>
           <h4>Grand Total: Rs. {totalPrice}</h4>
           <button onClick={addAddress} className="cart__checkout">
             Checkout
@@ -95,8 +91,6 @@ function Cart(props) {
           {!loading && !cartList?.length > 0 && <h2>Your Cart is empty</h2>}
           {!loading &&
             cartList.map((item) => {
-              totalPrice += item.price;
-              totalItems += 1;
               return (
                 <CartItem
                   key={item.cakeids}
